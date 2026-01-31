@@ -1,3 +1,7 @@
+:root{
+    --primary-color: #ff7e00;
+}
+
 /* Home: why choose us */
 .why-choose-us{
 	margin-top: 2rem;
