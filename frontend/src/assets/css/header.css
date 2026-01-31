@@ -1,0 +1,75 @@
+/* Header styles moved from index.css */
+.header-container {
+	background-color: rgb(255, 255, 255);
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+	padding: .5rem 7rem;
+	border-bottom: 1px solid rgba(0, 0, 0, 0.226);
+}
+
+.center, .grid-item div:nth-child(1) {
+	text-align: center;
+}
+
+.header-logo {
+	color: rgb(14, 14, 14);
+	width: fit-content;
+	display: inherit;
+}
+
+.header-logo h1{
+	font-size: 1.5rem;
+}
+
+.header-logo{
+	width: fit-content;
+	padding-right: 0.5rem;
+}
+
+.logo-container {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	font-weight: bold;
+	font-size: 1.5rem;
+}
+
+.logo-guitar {
+	font-size: 1.8rem;
+}
+
+.logo-text {
+	background: linear-gradient(45deg, var(--logo-grad-start), var(--logo-grad-end));
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	background-clip: text;
+	font-weight: 700;
+}
+
+.sticky-menu{
+	position: sticky;
+	top: 0;
+	z-index: 1000;
+}
+
+/* Header menu */
+.header-menu {
+	display: flex;
+	gap: 1.5rem;
+	justify-content: center;
+	align-items: center;
+	padding: 0 1rem;
+	margin-top: 1.3rem;
+}
+.header-menu .menu-link{
+	color: rgb(0, 0, 1, 0.7);
+	font-weight: var(--weight-semi-bold);
+	font-family: var(--font-arimo);
+	text-decoration: none;
+	font-size: 1.1rem;
+}
+.header-menu .menu-link:hover {
+	color: var(--accent-orange-opaque);
+	transition: color 0.1s ease; /* transición suave */
+}

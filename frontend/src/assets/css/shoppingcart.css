@@ -1,0 +1,81 @@
+/* Shoppingcart & modals moved from index.css */
+.container-shoppingcart {
+	float: right;
+	width: 3rem;
+}
+
+.modal-shoppingcart {
+	width: 500px;
+	position: absolute;
+	right: 3rem;
+	background-color: rgba(255, 255, 255, 0.952);
+	display: none;
+	border-radius: 0.5rem;
+	padding: 1rem;
+	box-shadow: 1px 0px 5px 0px rgba(0, 0, 0, 0.5);
+	-webkit-box-shadow: 1px 0px 5px 0px rgba(0, 0, 0, 0.5);
+	-moz-box-shadow: 1px 0px 5px 0px rgba(0, 0, 0, 0.5);
+}
+
+.container-shoppingcart:hover .modal-shoppingcart {
+	display: block;
+}
+
+.empty-shoppingcart{
+	width: 11rem;
+	height: auto;
+}
+
+.cursor-pointer, button {
+	cursor: pointer;
+}
+
+.button-shoppingcart{
+	background: none;
+	border: none;
+}
+
+.cart-badge {
+    position: absolute;
+    top: 0px;
+    background: var(--accent-orange-opaque);
+    color: var(--white);
+    font-size: 0.8rem;
+    font-weight: bold;
+    border-radius: 1rem;
+    padding: 2px 6px;
+    min-width: 7px;
+    text-align: center;
+    z-index: 2;
+}
+
+.modal-row {
+	grid-template-rows: 1fr;
+	grid-template-columns: 1.5fr 2fr 1.5fr 2fr;
+}
+
+.modal-row.header {
+	border-bottom: 1.5px solid #0807074d;
+	padding-bottom: 1rem;
+}
+
+.modal-row.footer {
+	grid-template-columns: 1fr;
+	border-top: 1.5px solid #0807074d;
+	padding-top: 1rem;
+}
+
+/* Cart images: constrain size so they don't overflow modal */
+.modal-shoppingcart .grid-item-modal img {
+	width: 60px;
+	height: 60px;
+	object-fit: cover;
+	border-radius: 6px;
+}
+
+/* Ensure images within product-data don't grow beyond their cell */
+.modal-shoppingcart .product-data-container img {
+	max-width: 100%;
+	height: auto;
+	display: block;
+}

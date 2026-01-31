@@ -8,7 +8,12 @@ import guitars from './data/guitars.json';
 
 import "./assets/css/fonts.css";
 import "./assets/css/variables.css";
+import "./assets/css/header.css";
 import "./assets/css/index.css";
+import "./assets/css/products.css";
+import "./assets/css/shoppingcart.css";
+import "./assets/css/home.css";
+import "./assets/css/footer.css";
 import "./assets/css/mobile.css"; 
 
 import loadingGif from './assets/images/loading.gif';

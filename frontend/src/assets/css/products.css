@@ -1,0 +1,157 @@
+/* Product and cart item styles */
+.main-container{
+	padding: .5rem 7rem;
+}
+
+.menu-container{
+	margin: 3rem 0;
+}
+
+.menu-container.grid {
+	grid-template-columns: repeat(5, 1fr);
+	gap: 6rem;
+}
+
+.foot .grid-item-modal{
+	font-weight: var(--weight-extra-bold);
+}
+
+.grid-item-modal {
+	padding: 0.5rem;
+}
+
+.grid-item-modal label{
+	font-size: clamp(0.8rem, 2vw, 1rem);/* para que se adapte a resol. móvil*/
+}
+
+.grid-item-modal input.quantity-cart, .grid-item-modal .add-del-cart{
+	font-size: 0.8rem;
+}
+
+.grid-item img {
+	border-radius: 1rem;
+	width: 230px;
+	height: 300px;
+}
+
+.grid-item img {
+	border-radius: 1rem;
+	width: 230px;
+	height: 300px;
+}
+
+.add-cart-button {
+	width: 100%;
+	max-width: 400px;
+	padding: 0.5rem;
+	margin: 1rem 0;
+	background-color: var(--add-cart-bg);
+	color: var(--white);
+	font-size: 13pt;
+	border: 1px solid var(--add-cart-border);
+	border-radius: 1rem;
+	font-weight: var(--weight-semi-bold);
+	font-family: var(--font-arimo);
+}
+
+.add-cart-button:hover {
+	background-color: var(--add-cart-hover);
+	border: 1px solid var(--add-cart-border-hover);
+}
+
+.product-value {
+	font-size: 25pt;
+	margin: 1.5rem 0;
+	color: var(--logo-grad-end);
+}
+.product-value, .product-name, .our-collection {
+	font-weight: var(--weight-extra-bold);
+}
+
+.product-name {
+	font-size: 15pt;
+	min-height: 2rem;
+}
+
+.empty-cart-button {
+	background-color: var(--empty-cart-hover);
+	color: var(--white);
+	font-size: 12pt;
+	border: 1px solid var(--empty-cart-border);
+	border-radius: 1rem;
+	margin: auto;
+	width: 40%;
+	margin: 1rem;
+}
+
+.empty-cart-button:hover {
+	background-color: #c48104;
+	border: 1px solid #cc952d;
+}
+
+.add-del-cart {
+	color: var(--white);
+	background-color: var(--add-cart-bg);
+	border: 1px solid var(--add-cart-border);
+	border-radius: 5px;
+	margin: 0.5rem;
+	width: 1.5rem;
+	font-weight: var(--weight-extra-bold);
+}
+
+.add-del-cart:hover {
+	background-color: #c48104;
+	border: 1px solid #cc952d;
+}
+
+.pay-cart-button{
+	background-color: var(--pay-cart-bg);
+	border: 1px solid var(--pay-cart-border);
+	color: var(--white);
+	font-size: 12pt;
+	border-radius: 1rem;
+	margin: auto;
+	width: 40%;
+	margin: 1rem;
+	cursor: not-allowed;
+}
+
+.pay-message {
+	background: #bd0101;
+	width: 11rem;
+	border: 1px solid red;
+	border-radius: .5rem;
+	opacity: .8;
+	position: absolute;
+	left: 54.5%;
+	bottom: 70px;
+	height: 1.5rem;
+	font-weight: 600;
+}
+
+.quantity-cart{
+	width: 30px;
+	border-radius: 5px;
+	border: 1px solid gainsboro;
+	text-align: center;
+}
+
+.guitar-title {
+	font-size: 16pt;
+}
+
+button:disabled:hover{
+	background-color: var(--add-cart-bg);
+	border: 1px solid var(--add-cart-border);
+	cursor: not-allowed;
+}
+
+.product-data-container{
+	max-height: 18vh;
+	overflow-y: auto;
+	overflow-x: hidden;
+}
+
+.product-description{
+	height: 6rem;
+}

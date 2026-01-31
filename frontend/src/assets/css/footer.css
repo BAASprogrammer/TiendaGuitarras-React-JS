@@ -1,0 +1,10 @@
+/* Footer styles */
+.signature-footer{
+	color: #ffffff4d;
+}
+
+.signature-footer p{
+	font-size: initial;
+	font-weight: var(--weight-medium);
+	opacity: 0.5;
+}

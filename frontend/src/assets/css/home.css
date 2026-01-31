@@ -62,3 +62,15 @@
 .store-title{
 	color: var(--primary-color);
 }
+
+/* Home Products Section (moved from index.css) */
+.home-products-section {
+	padding: 4rem 0;
+	background: #f8f9fa;
+}
+
+.home-products-section h1 {
+	text-align: center;
+	margin-bottom: 2rem;
+	color: #333;
+}
