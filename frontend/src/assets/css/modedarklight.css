@@ -119,8 +119,21 @@
     color: aliceblue;
 }
 
+/* Asegura que los product-containers hereden fondo y color del tema */
+.dark-theme .product-container,
+.dark-theme .product-data {
+    background: inherit;
+    color: white;
+}
+
+.light-theme .product-container,
+.light-theme .product-data {
+    background: inherit;
+    color: black;
+}
+
 .dark-theme .home-products-section {
-    background: #1a1a1a;
+    background: inherit; /* hereda el background-color definido en .dark-theme */
     color: white;
 }
 
