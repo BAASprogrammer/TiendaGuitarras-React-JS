@@ -119,6 +119,15 @@
     color: aliceblue;
 }
 
+.dark-theme .home-products-section {
+    background: #1a1a1a;
+    color: white;
+}
+
+.dark-theme .home-products-section h1 {
+    color: white;
+}
+
 /* Light theme */
 .light-theme{
     background-color: white;

@@ -85,7 +85,7 @@ export default function ShoppingCart({dataCart,deleteCart, emptyCart}){
     return(<div className="right shoppingcart">
                 <div className="container-shoppingcart center">
                     <button className='button-shoppingcart' title='Carrito de compras'>
-                        <img className="header-img cursor-pointer img-shoppingcart" src={require('../images/carro.png')} alt="Carrito" width={20}></img>
+                        <img className="header-img pointer img-shoppingcart" src={require('../images/carro.png')} alt="Carrito" width={20}></img>
                     {/* Badge con cantidad */}
                     {totalCount > 0 && (
                         <span className="cart-badge" aria-live="polite" title={`${totalCount} producto(s) en carrito`}>

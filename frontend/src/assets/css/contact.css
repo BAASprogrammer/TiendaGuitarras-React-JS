@@ -10,12 +10,10 @@
 	border-radius: 10px;
 	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);		
 	margin: 5vh 0;
-	position: relative;
 	overflow: hidden;
 }
 
 .section-title {
-	text-align: center;
 	color: rgba(252, 95, 22, 0.863);
 }
 
@@ -53,10 +51,8 @@
 
 /* Keep content above animated dots */
 .contact-container {
-  position: relative;
-  z-index: 2;
   padding: 2rem;
-  background: rgba(255,255,255,0.02); /* subtle surface so dots show through */
+  background: rgba(255,255,255,0.02);
 }
 
 /* Animated dots background (decorative) */
