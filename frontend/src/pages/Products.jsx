@@ -10,13 +10,13 @@ export default function Products({dato, addCart, cart}){
     return(
         <section id="products" className="products-section">
             <div className="ppal-text center">
-                <h1 className="our-collection">Nuestra Colección</h1>
+                <h1 className="our-collection">Nuestra <span className="collection-txt">Colección</span></h1>
             </div>
             <div className="menu-container grid">
                 {productsData.map((item, index) => (
                     <div className="grid-item" key={index}>   
                         <div className="product-container">
-                            <div className="product-img"><img src={require(`../assets/images/inicio/${item.imagen}`)} alt="Guitarra"></img></div>
+                            <div className="product-img"><img src={require(`../assets/images/products/${item.imagen}`)} alt="Guitarra"></img></div>
                             <div className="product-data"><p className="product-name font-weight-800">{item.nombre}</p>
                                 <p className="product-description">{item.descripcion}</p>
                                 <p className="product-value">${item.precio}</p>

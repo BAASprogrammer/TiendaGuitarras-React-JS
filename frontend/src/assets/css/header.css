@@ -68,8 +68,23 @@
 	font-family: var(--font-arimo);
 	text-decoration: none;
 	font-size: 1.1rem;
+	position: relative;
+	transition: color 0.5s cubic-bezier(0.68,-0.55,0.27,1.55);
+}
+.header-menu .menu-link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 0;
+  height: 3px;
+  background: var(--accent-orange-opaque);
+  border-radius: 2px;
+  transition: width 0.5s cubic-bezier(0.68,-0.55,0.27,1.55);
 }
 .header-menu .menu-link:hover {
-	color: var(--accent-orange-opaque);
-	transition: color 0.1s ease; /* transición suave */
+  color: var(--accent-orange-opaque);
+}
+.header-menu .menu-link:hover::after {
+  width: 100%;
 }

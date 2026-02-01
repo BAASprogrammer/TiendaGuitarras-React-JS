@@ -1,3 +1,125 @@
+/* Home Page Styles */
+.star-light {
+  color: rgba(255, 152, 0, 0.75); /* naranja suave */
+  filter: drop-shadow(0 0 6px rgba(255,152,0,0.25));
+}
+.star-dark {
+  color: rgba(255, 253, 231, 0.7); /* claro suave en modo oscuro */
+  filter: drop-shadow(0 0 4px rgba(255, 249, 196, 0.4));
+}
+
+.welcome-container{
+	grid-template-columns: repeat(2, 1fr);
+  gap: 5rem;
+	margin-top: 3rem;
+  transform: translateX(-100%);
+  opacity: 0;
+  animation: slideIn 1.5s forwards;
+  justify-content: center;
+  align-items: center;
+}
+
+@keyframes slideIn {
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.welcome-title{
+	font-size: 3.5rem;
+}
+
+.welcome-txt{
+  margin-top: 1rem;
+  font-size: 1.1rem;
+  font-weight: var(--font-weight-semi-bold);
+  color: var(--text-dark);
+}
+
+.welcome-animation {
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+  border-radius: 1.5rem;
+  background: transparent;
+  gap: 1rem;
+}
+
+.welcome-line{
+  margin-top: 0.5rem;
+  width: 50px;
+  height: 4px;
+  background: var(--primary-color);
+  display: block;
+  transition: all 0.6s cubic-bezier(0.77,0,0.175,1);
+}
+
+.welcome-animation:hover .welcome-line {
+  width: 150px;
+}
+
+.welcome-guitar{
+  font-size: 1.7rem;
+  display: inline-block;
+  transform: translateX(-40px) rotate(-8deg) scale(0.95);
+  opacity: 0.92;
+  filter: drop-shadow(0 2px 6px rgba(0,0,0,0.10));
+  margin-bottom: 1.2rem;
+  margin-left: 0.5rem;
+  transition: transform 0.6s cubic-bezier(0.77,0,0.175,1), opacity 0.6s, filter 0.6s; /* English comment: Match guitar transition duration to line */
+}
+
+.welcome-animation:hover .welcome-guitar {
+  transform: translateX(-40px) scale(1.5);
+  opacity: 1;
+  filter: drop-shadow(0 4px 12px rgba(0,0,0,0.18));
+}
+
+.store-title{
+	color: var(--primary-color);
+}
+
+/* Home Products Section (moved from index.css) */
+.home-products-section {
+	padding: 4rem 0;
+	background: var(--bg-light);
+}
+
+.home-products-section h1 {
+	text-align: center;
+	margin-bottom: 2rem;
+	color: var(--text-dark);
+}
+
+.view-products{
+  margin-top: 1rem;
+  background-color: var(--primary-strong);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  color: var(--white);
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 1rem;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+.view-products:hover{
+  background-color: var(--primary-color);
+}
+
+.guitar-home{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 1.5rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
 /* Home: why choose us */
 .why-choose-us{
 	margin-top: 2rem;
@@ -9,7 +131,7 @@
 }
 
 .why-choose-us-title-end {
-  color: var(--primary-color);
+  /* El color se define por dot individual para armonía visual */
 }
 
 .why-choose-us-grid {
@@ -46,27 +168,72 @@
 }
 /* End why choose us */
 
-.welcome-container{
-	grid-template-columns: repeat(2, 1fr);
-	margin-top: 8rem;
+/* Guitar Dots Animation */
+
+.guitar-dot {
+  position: absolute;
+  filter: blur(.2px);
+  opacity: 0.6;
+  transform: translate3d(0,0,0);
+  will-change: transform, opacity;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  color: var(--primary-color);
 }
 
-.welcome-title{
-	font-size: 2.5rem;
+/* Individual variations (size, start position, duration, delay, path)
+   Duraciones aumentadas para animación más lenta y suave */
+.guitar-dot--1 { width: 22px; height: 22px; left: 10%; top: -6%; animation-name: float-vertical-1-rot; animation-duration: 30s; animation-delay: 0s; animation-timing-function: cubic-bezier(0.4,0,0.2,1); animation-iteration-count: infinite; }
+.guitar-dot--2 { width: 14px; height: 14px; left: 35%; top: -10%; animation-name: float-vertical-2-rot; animation-duration: 34s; animation-delay: 1.2s; animation-timing-function: cubic-bezier(0.4,0,0.2,1); animation-iteration-count: infinite; }
+.guitar-dot--3 { width: 18px; height: 18px; left: 65%; top: -8%; animation-name: float-vertical-3-rot; animation-duration: 36s; animation-delay: 2s; animation-timing-function: cubic-bezier(0.4,0,0.2,1); animation-iteration-count: infinite; }
+/* Dot 4 y 5 agregados */
+
+.guitar-dot--1 .guitar-icon{
+  width: 22px;
+  height: 22px;
+  color: rgba(255, 167, 38, 0.75); /* naranja suave */
+  transform: rotate(-8deg);
 }
 
-.store-title{
-	color: var(--primary-color);
+.guitar-dot--2 .guitar-icon{
+  width: 14px;
+  height: 14px;
+  transform: rotate(6deg);
+}
+.guitar-dot--3 .guitar-icon{
+  width: 18px;
+  height: 18px;
+  color: rgba(255, 213, 79, 0.7); /* amarillo suave */
+  transform: rotate(12deg);
 }
 
-/* Home Products Section (moved from index.css) */
-.home-products-section {
-	padding: 4rem 0;
-	background: var(--bg-light);
+/* Keyframes: vertical travel with gentle horizontal oscillation and fade */
+@keyframes float-vertical-1-rot {
+  0% { transform: translate3d(0, -6vh, 0) rotate(-10deg); opacity: 0.0; }
+  20% { opacity: 0.5; }
+  40% { transform: translate3d(2vw, 40vh, 0) rotate(8deg); }
+  70% { transform: translate3d(6vw, 90vh, 0) rotate(-6deg); opacity: 0.95; }
+  90% { opacity: 0.5; }
+  100% { transform: translate3d(-6vw, 110vh, 0) rotate(-10deg); opacity: 0; }
+}
+@keyframes float-vertical-2-rot {
+  0% { transform: translate3d(0, -8vh, 0) rotate(0deg); opacity: 0; }
+  25% { opacity: 0.5; }
+  45% { transform: translate3d(-2vw, 50vh, 0) rotate(12deg); }
+  75% { transform: translate3d(-4vw, 110vh, 0) rotate(-8deg); opacity: 0.95; }
+  95% { opacity: 0.5; }
+  100% { transform: translate3d(4vw, 120vh, 0) rotate(0deg); opacity: 0; }
+}
+@keyframes float-vertical-3-rot {
+  0% { transform: translate3d(0, -5vh, 0) rotate(-8deg); opacity: 0; }
+  30% { opacity: 0.5; }
+  50% { transform: translate3d(4vw, 50vh, 0) rotate(10deg); }
+  80% { transform: translate3d(8vw, 110vh, 0) rotate(-6deg); opacity: 0.95; }
+  98% { opacity: 0.5; }
+  100% { transform: translate3d(-8vw, 115vh, 0) rotate(-8deg); opacity: 0; }
 }
 
-.home-products-section h1 {
-	text-align: center;
-	margin-bottom: 2rem;
-	color: var(--text-dark);
+/* Respect prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  .guitar-dot { animation: none; opacity: .85; transform: translate3d(0,20px,0); }
 }

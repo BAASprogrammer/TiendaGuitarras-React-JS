@@ -85,7 +85,7 @@ export default function ShoppingCart({dataCart,deleteCart, emptyCart}){
     return(<div className="right shoppingcart">
                 <div className="container-shoppingcart center">
                     <button className='button-shoppingcart' title='Carrito de compras'>
-                        <img className="header-img pointer img-shoppingcart" src={require('../images/carro.png')} alt="Carrito" width={20}></img>
+                        <img className="header-img pointer img-shoppingcart" src={require('../assets/images/header/carro.png')} alt="Carrito" width={20}></img>
                     {/* Badge con cantidad */}
                     {totalCount > 0 && (
                         <span className="cart-badge" aria-live="polite" title={`${totalCount} producto(s) en carrito`}>
@@ -111,7 +111,7 @@ export default function ShoppingCart({dataCart,deleteCart, emptyCart}){
                                         <div className='product-data-container'>
                                             {dataCart.map((item) => (
                                                 <div key={item.id} className="grid modal-row">
-                                                    <div className="grid-item-modal"><img src={require(`../assets/images/inicio/${item.imagen}`)} alt="Guitarra"></img></div>
+                                                    <div className="grid-item-modal"><img src={require(`../assets/images/products/${item.imagen}`)} alt="Guitarra"></img></div>
                                                     <div className="grid-item-modal"><label title={item.nombre}>{item.nombre}</label></div>
                                                     <div className="grid-item-modal"><label>${item.precio}</label></div>
                                                     <div className="grid-item-modal">

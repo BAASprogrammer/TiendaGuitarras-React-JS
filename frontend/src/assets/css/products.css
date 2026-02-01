@@ -1,4 +1,8 @@
 /* Product and cart item styles */
+.collection-txt{
+	color: var(--primary-color);
+}
+
 .main-container{
 	padding: .5rem 7rem;
 }
@@ -52,6 +56,7 @@
 .product-name {
 	font-size: 15pt;
 	min-height: 2rem;
+	height: 5rem;
 }
 
 .guitar-title {
