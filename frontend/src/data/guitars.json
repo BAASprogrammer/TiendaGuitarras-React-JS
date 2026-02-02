@@ -2,7 +2,7 @@
     {
       "id": 1,
       "nombre": "Fender Stratocaster Standard",
-      "descripcion": "Guitarra eléctrica clásica con sonido brillante y versátil, ideal para rock, blues y pop.",
+      "descripcion": "Guitarra clásica con sonido brillante y versátil, ideal para rock, blues y pop.",
       "imagen": "guitar1.jpg",
       "precio": 899000,
       "categoria": "Clásica"
@@ -13,12 +13,12 @@
       "descripcion": "Sonido potente y cálido con gran sustain, perfecta para rock y hard rock.",
       "imagen": "guitar2.jpg",
       "precio": 1299000,
-      "categoria": "Eléctrica"
+      "categoria": "Clásica"
     },
     {
       "id": 3,
       "nombre": "Ibanez RG Series",
-      "descripcion": "Guitarra eléctrica rápida y cómoda, diseñada para estilos modernos y metal.",
+      "descripcion": "Guitarra acústica rápida y cómoda, diseñada para estilos modernos y metal.",
       "imagen": "guitar3.jpg",
       "precio": 749000,
       "categoria": "Acústica"
