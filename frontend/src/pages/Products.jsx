@@ -18,11 +18,11 @@ export default function Products({dato, addCart, cart}){
             <div className="ppal-text center">
                 <h1 className="our-collection">Nuestra <span className="collection-txt">Colección</span></h1>
             </div>
-            <div className="categorys-container">
+            <div className="categories-container">
                 <div className="category-all-container center">
                     <button className={`category-button category-all-button ${filterCategory === 'todas' ? 'active' : ''}`} onClick={(e) => {e.preventDefault(); setFilterCategory('todas');}}>Todas</button>
                 </div>
-                <div className="categorys-buttons-container flex justify-center align-center gap-2">
+                <div className="categories-buttons-container flex justify-center align-center gap-2 flex-wrap">
                     <button className={`category-button pointer ${filterCategory === 'clásica' ? 'active' : ''}`} onClick={(e) => {e.preventDefault(); setFilterCategory('clásica');}}>Clásica</button>
                     <button className={`category-button pointer ${filterCategory === 'acústica' ? 'active' : ''}`} onClick={(e) => {e.preventDefault(); setFilterCategory('acústica');}}>Acústica</button>
                     <button className={`category-button pointer ${filterCategory === 'eléctrica' ? 'active' : ''}`} onClick={(e) => {e.preventDefault(); setFilterCategory('eléctrica');}}>Eléctrica</button>

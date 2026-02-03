@@ -28,7 +28,12 @@
 		grid-template-columns: repeat(1, 1fr);
 	}
     .grid-item{
-        padding: 0 5rem;
+        padding: 0 1rem;
+    }
+
+    .grid-item img{
+        width: 100%;
+        height: auto;  
     }
 
     /* Welcome Container */
@@ -69,6 +74,10 @@
 	/* Shopping Cart Modal */
     .modal-shoppingcart.data-shoppingcart{
         width: 75%;
+    }
+
+    .welcome-title{
+        font-size: 2rem;
     }
 
 	/* Dark/Light Mode Switch */
@@ -122,6 +131,17 @@
         flex-direction: column;
         border-radius: 1.5rem;
         opacity: 0.95;
+    }
+    /* Categories Buttons Container */
+    .categories-buttons-container .category-button{
+        flex: 1 1 auto;
+    }
+    /* Why Choose Us */
+    .why-choose-us-title, .why-choose-us-title-end{
+        font-size: 2rem;
+    }
+    .why-choose-us-item{
+        flex: 1 1 auto;
     }
     /* Dark-light mode shop */
     .darkmode-shop {

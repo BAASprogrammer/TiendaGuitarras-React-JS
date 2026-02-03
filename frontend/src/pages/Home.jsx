@@ -63,7 +63,7 @@ export default function Home({ dato, cart, addCart }){
         <div>
           <div className="why-choose-us-title font-weight-600">¿Por qué <span className="why-choose-us-title-end">elegirnos</span>?</div>
         </div>
-        <div className="why-choose-us-grid flex">
+        <div className="why-choose-us-grid flex flex-wrap">
           <div className="why-choose-us-item">
             <FontAwesomeIcon icon={faCertificate} size="2x" className="wcu-icon" />
             <div className="wcu-item-title font-weight-600">Calidad Garantizada</div>
