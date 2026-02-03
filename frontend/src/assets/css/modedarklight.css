@@ -1,3 +1,4 @@
+/* ===== KEYFRAMES ===== */
 @keyframes icon-fade-in {
     from {
         opacity: 0;
@@ -25,18 +26,8 @@
     }
 }
 
-.icon-sun {
-    cursor: pointer;
-    border: none;
-    background: none;
-    transition: background-image 1s;
-}
-
-.icon-sun:hover {
-    border-radius: 5px;
-    animation: sun-moon 1s ease;
-}
-
+/* ===== ICON BUTTONS ===== */
+.icon-sun,
 .icon-moon {
     cursor: pointer;
     border: none;
@@ -44,151 +35,156 @@
     transition: background-image 1s;
 }
 
+.icon-sun:hover,
 .icon-moon:hover {
     border-radius: 5px;
     animation: sun-moon 1s ease;
 }
 
-/* Dark theme */
-.dark-theme{
+/* ===== SHARED STYLES ===== */
+.logo-text {
+    background: linear-gradient(45deg, var(--logo-grad-start), var(--logo-grad-end));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* ===== DARK THEME ===== */
+.dark-theme {
     background-color: var(--black);
     color: var(--white);
-} 
+}
 
-.dark-theme .modal-shoppingcart{
+/* Header & Logo */
+.dark-theme .modal-shoppingcart {
     background-color: var(--bg-modal-dark);
     color: var(--text-95);
-} 
+}
 
+/* Shopping Cart */
 .dark-theme .add-cart-button {
-	background-color: var(--add-cart-bg);
-	color: var(--white);
-	border: 1px solid var(--add-cart-border);
-} 
+    background-color: var(--add-cart-bg);
+    color: var(--white);
+    border: 1px solid var(--add-cart-border);
+}
 
 .dark-theme .add-cart-button:hover {
-	background-color: var(--add-cart-hover);
-	border: 1px solid var(--add-cart-border-hover);
-} 
-
-.dark-theme .logo-text {
-	background: linear-gradient(45deg, var(--logo-grad-start), var(--logo-grad-end));
-	-webkit-background-clip: text;
-	-webkit-text-fill-color: transparent;
-	background-clip: text;
-} 
-
-.light-theme .logo-text {
-	background: linear-gradient(45deg, var(--logo-grad-start), var(--logo-grad-end));
-	-webkit-background-clip: text;
-	-webkit-text-fill-color: transparent;
-	background-clip: text;
-} 
-
-.dark-theme .contact-section{
-    background-color: var(--bg-contact-dark);
-    box-shadow: var(--shadow-white-10);
-    color: var(--white);
-} 
-
-.dark-theme .section-title {
-    color: var(--accent-orange-opaque);
-} 
-
-.dark-theme .form-group input,
-.dark-theme .form-group textarea{
-    background-color: var(--bg-input-dark);
-    color: var(--white);
-    border: 1.5px solid var(--border-input-dark);
-} 
-
-.dark-theme .submit-button{
-    background-color: var(--accent-orange-opaque);
-    color: var(--white);
+    background-color: var(--add-cart-hover);
+    border: 1px solid var(--add-cart-border-hover);
 }
 
-.dark-theme .submit-button:hover{
-    background-color: var(--accent-orange);
-} 
-
-.dark-theme .form-group label{
-    color: var(--white);
-    font-weight: bold;
-}
-.dark-theme .data-error-message{
-    color: var(--data-error-color);
-} 
-
-/* Asegura que los product-containers hereden fondo y color del tema */
+/* Products */
 .dark-theme .product-container,
 .dark-theme .product-data {
     background: inherit;
-    color: white;
-}
-
-.light-theme .product-container,
-.light-theme .product-data {
-    background: inherit;
-    color: black;
+    color: var(--white);
 }
 
 .dark-theme .home-products-section {
-    background: inherit; /* hereda el background-color definido en .dark-theme */
-    color: white;
+    background: inherit;
+    color: var(--white);
 }
 
 .dark-theme .home-products-section h1 {
-    color: white;
+    color: var(--white);
 }
 
-/* Categories container */
-.dark-theme .category-button {
-  width: 7rem;
-  height: 2rem;
-  margin-top: 1rem;
-  font-size: 0.8rem;
-  border: 1px solid var(--primary-color);
-  border-radius: 1rem;
-  background-color: var(--black);
-  color: var(--primary-color);
-  font-weight: var(--weight-semi-bold);
-  cursor: pointer;
-  transition: all 1s ease;
+.dark-theme .welcome-txt {
+    color: rgba(217, 232, 245, 0.8);
 }
 
+/* Categories */
 .dark-theme .category-button:hover,
 .dark-theme .category-button.active {
     background-color: var(--primary-color);
     color: var(--white);
 }
-/* End categories container */
-/* End dark theme */
-/* Light theme */
-.light-theme{
+
+/* Contact Form */
+.dark-theme .contact-section {
+    background-color: var(--bg-contact-dark);
+    box-shadow: var(--shadow-white-10);
+    color: var(--white);
+}
+
+.dark-theme .section-title {
+    color: var(--accent-orange-opaque);
+}
+
+.dark-theme .form-group input,
+.dark-theme .form-group textarea {
+    background-color: var(--bg-input-dark);
+    color: var(--white);
+    border: 1.5px solid var(--border-input-dark);
+}
+
+.dark-theme .form-group label {
+    color: var(--white);
+    font-weight: bold;
+}
+
+.dark-theme .submit-button {
+    background-color: var(--accent-orange-opaque);
+    color: var(--white);
+}
+
+.dark-theme .submit-button:hover {
+    background-color: var(--accent-orange);
+}
+
+/* Messages */
+.dark-theme .data-error-message {
+    color: var(--data-error-color);
+}
+
+/* Footer */
+.dark-theme .signature-footer {
+    color: var(--white);
+}
+
+/* ===== LIGHT THEME ===== */
+.light-theme {
     background-color: var(--white);
     color: var(--black);
 }
 
-.light-theme .signature-footer{
-	color: var(--black);
+/* Products */
+.light-theme .product-container,
+.light-theme .product-data {
+    background: inherit;
+    color: var(--black);
 }
 
+/* Categories */
+.light-theme .category-button:hover,
+.light-theme .category-button.active {
+    background-color: var(--primary-color);
+    color: var(--white);
+}
+
+/* Shopping Cart */
 .light-theme .pay-message {
     color: var(--white);
 }
 
 .light-theme .empty-cart-button:hover {
-	background-color: var(--empty-cart-hover);
-	border: 1px solid var(--empty-cart-border);
+    background-color: var(--empty-cart-hover);
+    border: 1px solid var(--empty-cart-border);
 }
 
 .light-theme .pay-cart-button {
-	background-color: var(--pay-cart-bg);
-	border: 1px solid var(--pay-cart-border);
+    background-color: var(--pay-cart-bg);
+    border: 1px solid var(--pay-cart-border);
 }
 
-.light-theme .data-error-message{
+/* Messages */
+.light-theme .data-error-message {
     color: var(--bg-contact-dark);
+}
+
+/* Footer */
+.light-theme .signature-footer {
+    color: var(--black);
 } 
 
  

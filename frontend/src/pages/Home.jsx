@@ -26,7 +26,7 @@ export default function Home({ dato, cart, addCart }){
       </div>
       <div className="grid welcome-container">
         <div>
-          <div className="welcome-title font-weight-800">Bienvenido a <span className="store-title">Tienda de Guitarras</span></div>
+          <div className="welcome-title font-weight-800">Bienvenido a <span className="store-title">GuitarStore</span></div>
           <div className="welcome-txt">Calidad, variedad y el sonido que buscas</div>
           <div className="welcome-animation">
             <span className="welcome-line"></span><span className="welcome-guitar">🎸</span>
