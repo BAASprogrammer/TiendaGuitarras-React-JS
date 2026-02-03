@@ -168,3 +168,20 @@ button:disabled:hover{
 	border: 1px solid var(--add-cart-border);
 	cursor: not-allowed;
 }
+
+/* Modal grid items */
+.foot .grid-item-modal{
+	font-weight: var(--weight-extra-bold);
+}
+
+.grid-item-modal {
+	padding: 0.5rem;
+}
+
+.grid-item-modal label{
+	font-size: clamp(0.8rem, 2vw, 1rem);
+}
+
+.grid-item-modal input.quantity-cart, .grid-item-modal .add-del-cart{
+	font-size: 0.8rem;
+}

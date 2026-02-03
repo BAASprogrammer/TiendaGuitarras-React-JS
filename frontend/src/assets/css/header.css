@@ -88,3 +88,17 @@
 .header-menu .menu-link:hover::after {
   width: 100%;
 }
+/* Dark-light mode shop */
+.darkmode-shop {
+	transform: translateX(-125px);
+	margin-top: 0.7rem;
+}
+/* Menu toggle button for mobile */
+.menu-toggle-button{
+	display: none;
+	background: none;
+	border: none;
+	font-size: 2rem;
+	cursor: pointer;
+}
+

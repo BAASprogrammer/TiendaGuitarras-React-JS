@@ -94,10 +94,15 @@
 }
 
 /* Categories */
+.dark-theme .category-button {
+    background-color: var(--dark);
+    color: var(--white);
+    border: 1px solid var(--primary-color);
+}
+
 .dark-theme .category-button:hover,
 .dark-theme .category-button.active {
     background-color: var(--primary-color);
-    color: var(--white);
 }
 
 /* Contact Form */

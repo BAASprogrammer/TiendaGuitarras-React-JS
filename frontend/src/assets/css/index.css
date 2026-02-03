@@ -42,10 +42,7 @@ body {
 	grid-template-columns: repeat(5, 1fr);
 	gap: 6rem;
 }
-.darkmode-shop {
-	width: fit-content;
-	display: flex;
-}
+
 /* Shoppingcart & modal styles moved to `shoppingcart.css` */
 /* See: src/assets/css/shoppingcart.css */
 

@@ -15,7 +15,7 @@ export default function Header({dataCart, deleteCart, emptyCart}){
                 <div>
                     <Menu/>
                 </div>
-                <div className="darkmode-shop right flex align-center gap-2">
+                <div className="darkmode-shop right flex align-center gap-2 position-absolute top-0 right-0">
                     <Switch/>
                     <ShoppingCart
                         dataCart = {dataCart}

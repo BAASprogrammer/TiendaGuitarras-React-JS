@@ -16,28 +16,6 @@
 	gap: 6rem;
 }
 
-.foot .grid-item-modal{
-	font-weight: var(--weight-extra-bold);
-}
-
-.grid-item-modal {
-	padding: 0.5rem;
-}
-
-.grid-item-modal label{
-	font-size: clamp(0.8rem, 2vw, 1rem);/* para que se adapte a resol. móvil*/
-}
-
-.grid-item-modal input.quantity-cart, .grid-item-modal .add-del-cart{
-	font-size: 0.8rem;
-}
-
-.grid-item img {
-	border-radius: 1rem;
-	width: 230px;
-	height: 300px;
-}
-
 .grid-item img {
 	border-radius: 1rem;
 	width: 230px;
@@ -71,6 +49,7 @@
 
 .product-description{
 	height: 6rem;
+	padding: 0 1rem;
 }
 
 .category{
