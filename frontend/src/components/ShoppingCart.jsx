@@ -96,7 +96,7 @@ export default function ShoppingCart({dataCart,deleteCart, emptyCart}){
                     {dataCart.length !== 0 ? (
                     <div className="modal-shoppingcart data-shoppingcart right">
                         <div className="status-shoppingcart center">
-                            <h3>Productos agregados</h3>
+                            <h3>Productos <span>Carro</span></h3>
                         </div>
                         <div className="contenedor-modal center">
                             <div className="grid modal-row header">
