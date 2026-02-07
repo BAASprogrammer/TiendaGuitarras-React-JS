@@ -136,6 +136,7 @@
     .menu-opened .menu-link{
         padding: 0.1rem;
         border-bottom: 1px solid var(--border-light);
+        pointer-events: none;
     }
     /* Categories Buttons Container */
     .categories-buttons-container .category-button{
