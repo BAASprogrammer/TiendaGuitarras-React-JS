@@ -83,10 +83,9 @@
 	color: var(--primary-color);
 }
 
-/* Home Products Section (moved from index.css) */
+/* Home Products Section*/
 .home-products-section {
 	padding: 4rem 0;
-	background: var(--bg-light);
 }
 
 .home-products-section h1 {

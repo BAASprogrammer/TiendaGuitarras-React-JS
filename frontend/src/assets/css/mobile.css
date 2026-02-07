@@ -4,7 +4,7 @@
 @media screen and (max-width:1366px) {
 	.menu-container.grid {
 		grid-template-columns: repeat(3, 1fr);
-		gap: clamp(1rem, 15vw, 12rem);
+		gap: clamp(1vw, 2vw, 3vw);
 	}
 }
 

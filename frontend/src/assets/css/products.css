@@ -15,16 +15,20 @@
 	grid-template-columns: repeat(5, 1fr);
 	gap: 6rem;
 }
+.grid-item{
+	border-radius: 1rem;
+	padding: 1rem;
+	filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1));
+}
 
 .grid-item img {
-	border-radius: 1rem;
 	width: 230px;
-	height: 300px;
+	height: 260px;
 }
 
 .product-value {
 	font-size: 25pt;
-	margin: 1.5rem 0;
+	margin: .5rem 0;
 	color: var(--logo-grad-end);
 }
 .product-value, .product-name, .our-collection {
@@ -33,8 +37,8 @@
 
 .product-name {
 	font-size: 15pt;
-	min-height: 2rem;
-	height: 5rem;
+	min-height: 1.5rem;
+	height: 2rem;
 }
 
 .guitar-title {
@@ -48,7 +52,7 @@
 }
 
 .product-description{
-	height: 6rem;
+	height: 4rem;
 	padding: 0 1rem;
 }
 
@@ -59,26 +63,13 @@
 	padding: 0.2rem 0.5rem;
 	border-radius: 0.5rem;
 	font-size: 0.8rem;
-	margin: 0.5rem;
 	font-weight: var(--weight-semi-bold);
 	width: 3rem;
+	transform: translate(-80%, -30%);
 }
 .category:hover {
 	animation: alternate 0.5s ease-in-out category-hover;
 }
-/* Category Animation */
-@keyframes category-hover {
-	0% {
-		transform: translateY(0);
-	}
-	50% {
-		transform: translateY(-5px);
-	}
-	100% {
-		transform: translateY(0);
-	}
-}
-
 /* Categories Container  */
 .categories-container {
   margin-bottom: 4rem;
@@ -107,4 +98,17 @@
   background-color: var(--primary-color);
   color: var(--white);
 }
+/* Category Animation */
+@keyframes category-hover {
+	0% {
+		transform: translate(-80%, -30%) translateY(0);
+	}
+	50% {
+		transform: translate(-80%, -30%) translateY(-5px);
+	}
+	100% {
+		transform: translate(-80%, -30%) translateY(0);
+	}
+}
+
 /* End Categories Container */

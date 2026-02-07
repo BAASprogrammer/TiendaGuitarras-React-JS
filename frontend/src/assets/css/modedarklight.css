@@ -96,6 +96,9 @@
 .dark-theme .welcome-txt, .dark-theme .wcu-item-description {
     color: var(--dark-text-light);
 }
+.dark-theme .grid-item{
+    border: 1px solid var(--border-dark-text);
+}
 
 /* Categories */
 .dark-theme .category-button {
@@ -173,6 +176,10 @@
     background: inherit;
     color: var(--black);
 }
+.light-theme .grid-item{
+    background-color: var(--bg-offwhite);
+	border: 1px solid var(--border-dark-30);
+}
 
 /* Categories */
 .light-theme .category-button:hover,
@@ -205,5 +212,4 @@
 .light-theme .signature-footer {
     color: var(--black);
 } 
-
  
