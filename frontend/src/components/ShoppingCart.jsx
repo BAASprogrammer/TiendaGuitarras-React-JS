@@ -108,7 +108,7 @@ export default function ShoppingCart({dataCart,deleteCart, emptyCart}){
                         </div>
                         <div className="contenedor-modal center">
                             <div className="grid modal-row header">
-                                <div className="grid-item-modal font-weight-800" ><label>Imagen</label></div>
+                                <div className="grid-item-modal font-weight-800"><label>Imagen</label></div>
                                 <div className="grid-item-modal font-weight-800"><label>Nombre</label></div>
                                 <div className="grid-item-modal font-weight-800"><label>Precio</label></div>
                                 <div className="grid-item-modal font-weight-800"><label>Cantidad</label></div>
@@ -123,9 +123,11 @@ export default function ShoppingCart({dataCart,deleteCart, emptyCart}){
                                                     <div className="grid-item-modal"><label title={item.nombre}>{item.nombre}</label></div>
                                                     <div className="grid-item-modal"><label>${item.precio}</label></div>
                                                     <div className="grid-item-modal">
-                                                        <button className="add-del-cart" onClick={() => deleteProduct(item.id)} title='Disminuir cantidad'>-</button>
-                                                        <input className='quantity-cart' value={cantidad[item.id] || 1} onChange={(e)=>handleChange(e, item.id)}></input>
-                                                        <button className="add-del-cart" onClick={() => addProduct(item.id)} title='Aumentar cantidad'>+</button>
+                                                        <div className='flex justify-center align-center gap-1 quantity-container'>
+                                                            <button className="add-del-cart" onClick={() => deleteProduct(item.id)} title='Disminuir cantidad'>-</button>
+                                                            <input className='quantity-cart' value={cantidad[item.id] || 1} onChange={(e)=>handleChange(e, item.id)}></input>
+                                                            <button className="add-del-cart" onClick={() => addProduct(item.id)} title='Aumentar cantidad'>+</button>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             ))}

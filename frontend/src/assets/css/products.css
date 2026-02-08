@@ -20,8 +20,8 @@
 	padding: 1rem;
 	filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1));
 	background-color: var(--white);
-	border: 1px solid rgba(0, 0, 0, 0.08);
-	transition: transform 0.3s ease, box-shadow 0.3s ease;
+	border: 1px solid var(--border-card-light);
+	transition: var(--transition-fast);
 }
 
 .grid-item:hover {
@@ -61,7 +61,7 @@
 
 .product-description{
 	height: 4rem;
-	padding: 0 1rem;
+	padding: 1rem;
 }
 
 .category{
@@ -95,7 +95,7 @@
   color: var(--primary-color);
   font-weight: var(--weight-semi-bold);
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: var(--transition-fast);
   box-shadow: 0 2px 6px rgba(255, 126, 0, 0.1);
 }
 
@@ -103,13 +103,13 @@
   background-color: var(--primary-color);
   color: var(--white);
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(255, 126, 0, 0.25);
+  box-shadow: var(--shadow-primary-md);
 }
 
 .category-button.active {
   background-color: var(--primary-color);
   color: var(--white);
-  box-shadow: 0 4px 12px rgba(255, 126, 0, 0.3);
+  box-shadow: var(--shadow-primary-lg);
 }
 /* Category Animation */
 @keyframes category-hover {

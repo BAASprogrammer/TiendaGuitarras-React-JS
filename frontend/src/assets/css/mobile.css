@@ -15,14 +15,18 @@
 }
 
 /* Desktop Small */
-@media screen and (max-width:1024px) {
+@media screen and (max-width:1023px) {
 	.menu-container.grid {
-		grid-template-columns: repeat(3, 1fr);
+		grid-template-columns: repeat(2, 1fr);
 		gap: 2rem;
 	}
     /* Contact */
     .contact-section{
         width: 90%;
+    }
+    /* Welcome Container */
+    .guitar-home{
+        display:none;
     }
 }
 
@@ -30,7 +34,7 @@
 @media screen and (max-width:768px) {
 	/* Grid Layout */
 	.menu-container.grid {
-		grid-template-columns: repeat(1, 1fr);
+		grid-template-columns: repeat(2, 1fr);
 	}
 	
 	/* Header */
@@ -43,17 +47,12 @@
 
     .grid-item img{
         width: clamp(55%, 60%, 70%);
-        height: auto;  
     }
 
     /* Welcome Container */
     .welcome-container{
         grid-template-columns: repeat(1, 1fr);
         gap: 3rem;
-    }
-
-    .guitar-home{
-        display:none;
     }
 	
 	/* Text */
@@ -80,7 +79,7 @@
         width: 70%;
     }
     .modal-shoppingcart.data-shoppingcart{
-        width: fit-content;
+        width: clamp(250px, 78vw, 500px)
     }
     .grid-item-modal input.quantity-cart, .grid-item-modal .add-del-cart{
         font-size: 0.7rem;
@@ -92,7 +91,7 @@
     .add-cart-button{
         padding: 0.5rem 1rem;
         font-size: 0.9rem;
-        width: 60%;
+        width: 90%;
     }
     .darkmode-shop {
         right: 1rem;
@@ -176,11 +175,33 @@
     .section-title{
         font-size: 1.7rem;
     }
+    /* Products */
+    .product-description{
+        height: 7rem;
+        max-height: 8rem;
+        overflow-y: scroll;
+        margin-bottom: 0.5rem;
+    }
+    .product-name, .guitar-title{
+        font-size: 1rem;
+    }
+    .product-value{
+        margin: 0.5rem 0;
+        font-size: 1.5rem;
+    }
 }
 
 @media screen and (max-width:576px) {
+    /* Grid Layout */
+	.menu-container.grid {
+		grid-template-columns: repeat(1, 1fr);
+	}
     .button-home-container{
         flex-wrap: wrap;
+    }
+    /* Shopping Cart */
+    .quantity-container{
+        flex-direction: column;
     }
 }
 
@@ -189,8 +210,13 @@
     .pay-message{
         left: 25%;
     }
+    .product-description{
+        padding: 0 1rem;
+    }
+    .form-group{
+        width: 100%;
+    }
 }
-
 /* Dark/Light Mode - Desktop */
 @media (min-width: 768px) {
     .mode-dark-light label {
