@@ -61,7 +61,7 @@
     border: 1px solid var(--add-cart-border);
 }
 .dark-theme .add-cart-button:hover {
-    background-color: var(--button-hover-color);
+    background-color: var(--primary-hover);
     border: 1px solid var(--add-cart-border-hover);
 }
 .dark-theme .modal-row.footer {
@@ -110,7 +110,7 @@
 
 .dark-theme .view-products:hover,
 .dark-theme .why-us:hover {
-    background: var(--button-hover-color);
+    background: var(--primary-hover);
     transform: translateY(-3px);
     box-shadow: 0 6px 20px rgba(255, 126, 0, 0.4);
 }

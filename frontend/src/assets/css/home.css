@@ -108,7 +108,7 @@
 }
 
 .view-products:hover, .why-us:hover{
-  background: var(--button-hover-color);
+  background: var(--primary-hover);
   transform: translateY(-3px);
 	box-shadow: var(--shadow-primary-xl);
 }

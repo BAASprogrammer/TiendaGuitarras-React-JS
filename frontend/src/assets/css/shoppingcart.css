@@ -101,7 +101,7 @@
 }
 
 .add-cart-button:hover {
-	background-color: var(--button-hover-color);
+	background-color: var(--primary-hover);
 	border: 1px solid var(--add-cart-border-hover);
 }
 
