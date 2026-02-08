@@ -108,12 +108,6 @@
     color: var(--white);
 }
 
-.dark-theme .view-products,
-.dark-theme .why-us {
-    background: var(--primary-color);
-    color: var(--white);
-}
-
 .dark-theme .view-products:hover,
 .dark-theme .why-us:hover {
     background: var(--button-hover-color);
@@ -123,7 +117,6 @@
 
 .dark-theme .why-choose-us-title {
     color: var(--white);
-    background: none;
 }
 
 .dark-theme .why-choose-us-title-end {
@@ -137,7 +130,6 @@
 
 .dark-theme .collection-txt {
     color: var(--primary-color);
-    background: none;
 }
 
 .dark-theme .grid-item{
@@ -207,11 +199,6 @@
     background: rgba(20, 20, 24, 0.3);
     border-radius: 8px;
 }
-
-.dark-theme .contact-section .section-title {
-    color: var(--primary-color);
-}
-
 .dark-theme .form-group label {
     color: var(--white);
     font-weight: var(--weight-semi-bold);
@@ -253,7 +240,7 @@
 }
 
 .dark-theme .error-message {
-    color: #ff6b6b;
+    color: var(--error-message);
     font-weight: var(--weight-semi-bold);
 }
 
@@ -382,9 +369,7 @@
 }
 
 .light-theme .section-title {
-    background: linear-gradient(135deg, #ff8c00 0%, var(--primary-color) 100%);
-    -webkit-background-clip: text;
-    background-clip: text;
+    color: var(--primary-color);
     text-shadow: none;
 }
 
@@ -454,9 +439,7 @@
 }
 
 .light-theme .about-section .section-title {
-    background: linear-gradient(135deg, var(--primary-strong) 0%, var(--primary-color) 100%);
-    -webkit-background-clip: text;
-    background-clip: text;
+    color: var(--primary-color);
 }
 
 .light-theme .about-text {

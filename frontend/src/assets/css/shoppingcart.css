@@ -86,9 +86,8 @@
 	display: block;
 }
 
-/* Shopping cart styles moved from products.css */
 .add-cart-button {
-	width: 100%;
+	width: 90%;
 	max-width: 400px;
 	padding: var(--gap-1);
 	margin: var(--gap-2) 0;

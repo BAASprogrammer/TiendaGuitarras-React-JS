@@ -15,11 +15,6 @@
   --weight-extra-bold: 800;
   --weight-black: 900;
 
-  /* Compatibility aliases (refer to canonical weight variables) */
-  --fw-500: var(--weight-medium);
-  --fw-600: var(--weight-semi-bold);
-  --fw-800: var(--weight-extra-bold);
-
   /* Spacing */
   --gap-1: 0.5rem;
   --gap-2: 1rem;
@@ -77,12 +72,13 @@
   --empty-cart-hover: var(--primary-color);
   --pay-cart-bg: rgba(216,46,16,1);
   --pay-cart-border: rgba(192,41,15,1);
-  --button-hover-color: #d97d1a;
+  --button-hover-color: rgba(230, 104, 10, 1);
   
   /* Status & Semantic Colors */
   --danger: rgba(189,1,1,1);
-  --data-error-message: rgb(255, 30, 0);
+  --data-error-message: rgba(255, 30, 0, 1);
   --data-error-color: rgba(240,248,255,1);
+  --error-message: rgba(255, 68, 68, 1);
   
   /* Decorative / Animation Colors */
   --dot-gradient-start: var(--logo-grad-end);
@@ -128,33 +124,18 @@
   --dot-gradient-end: rgba(255,126,0,1);
 }
 
-/* Utility classes using variables */
-
-/* FONT WEIGHT */
-.font-weight-500 { font-weight: var(--weight-medium); }
-.font-weight-600 { font-weight: var(--weight-semi-bold); }
-.font-weight-800 { font-weight: var(--weight-extra-bold); }
-
-/* DISPLAY */
+/* Utility classes */
 .flex { display: flex; }
-.flex-column { display: flex; flex-direction: column; }
-.flex-wrap { display: flex; flex-wrap: wrap; }
+.flex-column { flex-direction: column; }
+.flex-wrap { flex-wrap: wrap; }
 .grid { display: grid; }
-
-/* FLEXBOX ALIGNMENT */
 .align-center { align-items: center; }
 .justify-between { justify-content: space-between; }
 .justify-center { justify-content: center; }
-
-/* GAPS */
 .gap-1 { gap: var(--gap-1); }
 .gap-2 { gap: var(--gap-2); }
 .gap-3 { gap: var(--gap-3); }
-
-/* PADDING */
 .py-4 { padding-top: var(--py-4); padding-bottom: var(--py-4); }
-
-/* POSITIONING */
 .position-relative { position: relative; }
 .position-absolute { position: absolute; }
 .top-0 { top: 0; }
@@ -163,11 +144,10 @@
 .bottom-0 { bottom: 0; }
 .z-index-1 { z-index: var(--z-1); }
 .z-index-10 { z-index: var(--z-10); }
-
-/* TEXT ALIGNMENT */
 .center { text-align: center; }
 .left { text-align: left; }
 .right { text-align: right; }
-
-/* CURSOR */
 .pointer { cursor: pointer; }
+.font-weight-500 { font-weight: var(--weight-medium); }
+.font-weight-600 { font-weight: var(--weight-semi-bold); }
+.font-weight-800 { font-weight: var(--weight-extra-bold); }
