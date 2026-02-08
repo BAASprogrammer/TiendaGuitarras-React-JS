@@ -79,6 +79,7 @@
   
   /* Status & Semantic Colors */
   --danger: rgba(189,1,1,1);
+  --data-error-message: rgb(255, 30, 0);
   --data-error-color: rgba(240,248,255,1);
   
   /* Decorative / Animation Colors */

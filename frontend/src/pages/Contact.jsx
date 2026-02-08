@@ -1,6 +1,59 @@
+import { useState } from "react";
 import "../assets/css/contact.css";
 
 export default function Contact(){
+    const [error, setError] = useState({});
+    const [formData, setFormData] = useState({
+        general: "",
+        nombre: "",
+        email: "",
+        mensaje: ""
+    });
+    const newErrors = {};
+    const validateForm = () => {
+        if (formData.nombre.trim() === "" || formData.email.trim() === "" || formData.mensaje.trim() === "") {
+            newErrors.general = "Por favor, complete todos los campos.";
+            return false;
+        }
+        if (formData.nombre.trim() === "" || formData.nombre.trim().length < 3) {
+            newErrors.nombre = "El nombre debe tener al menos 3 caracteres.";
+            return false;
+        }
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(formData.email.trim())) {
+            newErrors.email = "Por favor, ingrese un correo electrónico válido.";
+            return false;
+        }
+        if (formData.mensaje.trim() === "" || formData.mensaje.trim().length < 10) {
+            newErrors.mensaje = "El mensaje debe tener al menos 10 caracteres.";
+            return false;
+        }
+        setError(newErrors);
+        return true;
+    }
+
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setFormData(prev => ({
+            ...prev,
+            [name]: value
+        }));
+        setError({}); // Clear error when user starts typing
+    }
+
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        if (validateForm()) {
+            alert("Mensaje enviado correctamente. Nos pondremos en contacto contigo pronto.");
+            setFormData({
+                nombre: "",
+                email: "",
+                mensaje: ""
+            });
+        }else{
+            setError(newErrors);
+        }
+    }
     return(
         <section id="contact" className="contact-section position-relative">
             {/* Decorative animated dots (non-interactive, aria-hidden) */}
@@ -15,19 +68,23 @@ export default function Contact(){
 
             <div className="contact-container position-relative z-index-10">
                 <h2 className="section-title center">Contáctenos</h2>
-                <form className="contact-form flex flex-column align-center">
+                <form className="contact-form flex flex-column align-center" onSubmit={handleSubmit} noValidate>
                     <div className="form-group">
                         <label htmlFor="nombre">Nombre:</label>
-                        <input type="text" id="nombre" name="nombre" required />
+                        <input type="text" id="nombre" name="nombre" value={formData.nombre} onChange={handleChange} />
+                        {error.nombre && <p className="error-message">{error.nombre}</p>}
                     </div>
                     <div className="form-group">
                         <label htmlFor="email">Email:</label>
-                        <input type="email" id="email" name="email" required />
+                        <input type="email" id="email" name="email" value={formData.email} onChange={handleChange} />
+                        {error.email && <p className="error-message">{error.email}</p>}
                     </div>
                     <div className="form-group">
                         <label htmlFor="mensaje">Mensaje:</label>
-                        <textarea id="mensaje" name="mensaje" rows="4" required></textarea>
+                        <textarea id="mensaje" name="mensaje" rows="4" value={formData.mensaje} onChange={handleChange}></textarea>
+                        {error.mensaje && <p className="error-message">{error.mensaje}</p>}
                     </div>
+                    <div>{error.general && <p className="error-message">{error.general}</p>}</div>
                     <button type="submit" className="submit-button">Enviar</button>
                 </form>
             </div>

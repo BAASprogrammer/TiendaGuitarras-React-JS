@@ -14,10 +14,10 @@ export default function Menu(){
                 </button>
             </div>
             <nav className={`header-menu${isMenuOpen ? ' menu-opened' : ' menu-closed'}`}>
-                <Link to="/home" className="menu-link">Home</Link>
-                <Link to="/products" className="menu-link">Products</Link>
-                <Link to="/about" className="menu-link">About</Link>
-                <Link to="/contact" className="menu-link">Contact</Link>
+                <Link to="/home" className="menu-link">Inicio</Link>
+                <Link to="/products" className="menu-link">Productos</Link>
+                <Link to="/about" className="menu-link">Nosotros</Link>
+                <Link to="/contact" className="menu-link">Contacto</Link>
             </nav>
         </div>
     )
