@@ -45,7 +45,6 @@
 .logo-text {
     background: linear-gradient(45deg, var(--logo-grad-start), var(--logo-grad-end));
     -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
     background-clip: text;
 }
 
@@ -106,11 +105,7 @@
 }
 
 .dark-theme .welcome-title {
-    color: var(--white) !important;
-    background: none !important;
-    -webkit-text-fill-color: var(--white) !important;
-    -webkit-background-clip: unset !important;
-    background-clip: unset !important;
+    color: var(--white);
 }
 
 .dark-theme .view-products,
@@ -129,18 +124,15 @@
 .dark-theme .why-choose-us-title {
     color: var(--white);
     background: none;
-    -webkit-text-fill-color: var(--white);
 }
 
 .dark-theme .why-choose-us-title-end {
     color: var(--primary-color);
     background: none;
-    -webkit-text-fill-color: var(--primary-color);
 }
 
 .dark-theme .store-title {
-    color: var(--primary-color) !important;
-    background: none !important;
+    color: var(--primary-color);
 }
 
 .dark-theme .collection-txt {
@@ -310,14 +302,11 @@
 }
 
 .light-theme .welcome-title {
-    color: rgba(51, 51, 51, 0.9) !important;
-    background: none !important;
+    color: rgba(51, 51, 51, 0.9);
 }
 
 .light-theme .store-title {
     color: var(--primary-color);
-    background: none;
-    -webkit-text-fill-color: var(--primary-color);
 }
 
 .light-theme .why-choose-us-title {
@@ -325,8 +314,7 @@
 }
 
 .light-theme .why-choose-us-title-end {
-    color: var(--primary-color) !important;
-    background: none !important;
+    color: var(--primary-color);
 }
 
 /* Products */
@@ -396,7 +384,6 @@
 .light-theme .section-title {
     background: linear-gradient(135deg, #ff8c00 0%, var(--primary-color) 100%);
     -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
     background-clip: text;
     text-shadow: none;
 }
@@ -469,7 +456,6 @@
 .light-theme .about-section .section-title {
     background: linear-gradient(135deg, var(--primary-strong) 0%, var(--primary-color) 100%);
     -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
     background-clip: text;
 }
 
