@@ -180,7 +180,7 @@
 
 /* Button toggle menu */
 .dark-theme .menu-opened{
-    background-color: var(--dark-overlay);
+    background-color: var(--black);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
     border: 1px solid rgba(255, 126, 0, 0.2);
     border-color: #b8a899;
