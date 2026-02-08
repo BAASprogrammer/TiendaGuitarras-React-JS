@@ -238,5 +238,11 @@ Para consultas o sugerencias sobre el proyecto:
 
 ---
 
+## 👨‍💻 Autor
+
+**BAASprogrammer** - Desarrollador del proyecto
+
+---
+
 **Última actualización:** Febrero 2026  
 **Versión:** 1.0.0

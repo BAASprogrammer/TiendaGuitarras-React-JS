@@ -1,6 +1,7 @@
 {
   "name": "guitarstore-react-js",
   "version": "0.1.0",
+  "author": "BAASprogrammer",
   "private": true,
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^7.1.0",
