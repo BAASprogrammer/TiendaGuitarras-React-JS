@@ -147,10 +147,11 @@
 }
 
 .dark-theme .collection-txt {
-    background: linear-gradient(135deg, var(--logo-grad-end) 0%, var(--primary-color) 50%, var(--primary-strong) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: var(--primary-color);
+    background: none;
+    -webkit-background-clip: unset;
+    -webkit-text-fill-color: var(--primary-color);
+    background-clip: unset;
 }
 
 .dark-theme .grid-item{
@@ -222,10 +223,7 @@
 }
 
 .dark-theme .contact-section .section-title {
-    background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-strong) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: var(--primary-color);
 }
 
 .dark-theme .form-group label {
@@ -253,13 +251,13 @@
 }
 
 .dark-theme .submit-button {
-    background: var(--primary-strong);
+    background: var(--primary-color);
     box-shadow: 0 4px 16px rgba(255, 126, 0, 0.25);
     transition: all 0.3s ease;
 }
 
 .dark-theme .submit-button:hover {
-    background: var(--primary-color);
+    background: #d97d1a;
     transform: translateY(-2px);
     box-shadow: 0 6px 24px rgba(255, 126, 0, 0.4);
 }

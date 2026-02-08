@@ -102,8 +102,7 @@
 }
 
 .add-cart-button:hover {
-	background-color: var(--primary-color);
-	opacity: 0.85;
+	background-color: #d97d1a;
 	border: 1px solid var(--add-cart-border-hover);
 }
 
