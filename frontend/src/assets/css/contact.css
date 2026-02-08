@@ -1,12 +1,12 @@
 .contact-section{
 	width: 45%;
 	padding: 2rem;
-	background: rgba(255, 248, 240, 0.6);
+	background: var(--bg-contact-light);
 	border-radius: 10px;
-	box-shadow: var(--shadow-border-contact);		
+	box-shadow: var(--shadow-card-sm);		
 	margin: 5vh 0;
 	overflow: hidden;
-	border: 2px solid rgba(255, 150, 50, 0.15);
+	border: 2px solid var(--border-orange-15);
 }
 
 .section-title {
@@ -20,29 +20,29 @@
 .form-group label{
 	margin: 0.5rem 0;
 	display: block;
-	font-weight: bold;
-	color: rgba(70, 50, 35, 0.95);
+	font-weight: var(--weight-bold);
+	color: var(--text-warm-dark);
 }
 
 .form-group input,
 .form-group textarea{
 	width: 100%;
 	padding: 0.75rem;
-	border: 2px solid rgba(255, 150, 50, 0.2);
+	border: 2px solid var(--border-orange-20);
 	border-radius: 8px;
 	box-sizing: border-box;
-	background: rgba(255, 255, 255, 0.95);
-	color: rgba(70, 50, 35, 0.95);
+	background: var(--bg-white-95);
+	color: var(--text-warm-dark);
 	font-size: 1rem;
-	transition: all 0.3s ease;
+	transition: var(--transition-fast);
 }
 
 .form-group input:focus,
 .form-group textarea:focus {
 	outline: none;
 	border-color: var(--primary-color);
-	box-shadow: 0 0 0 3px rgba(255, 126, 0, 0.1);
-	background: rgba(255, 255, 255, 1);
+	box-shadow: var(--shadow-focus);
+	background: var(--white);
 }
 
 .form-group textarea{
@@ -64,18 +64,18 @@
 	padding: 0.75rem 1.5rem;
 	border-radius: 8px;
 	cursor: pointer;
-	font-weight: bold;
+	font-weight: var(--weight-bold);
 	font-size: 1rem;
 	margin-top: 1rem;
 	width: 100%;
-	box-shadow: 0 4px 12px rgba(255, 126, 0, 0.25);
-	transition: all 0.3s ease;
+	box-shadow: var(--shadow-primary-md);
+	transition: var(--transition-fast);
 }
 
 .submit-button:hover{
-	background: var(--button-hover-color);
+	background: var(--primary-hover);
 	transform: translateY(-2px);
-	box-shadow: 0 6px 20px rgba(255, 126, 0, 0.35);
+	box-shadow: var(--shadow-primary-xl);
 }
 
 /* Keep content above animated dots */

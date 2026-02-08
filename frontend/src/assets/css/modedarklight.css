@@ -230,11 +230,11 @@
 .dark-theme .submit-button {
     background: var(--primary-color);
     box-shadow: 0 4px 16px rgba(255, 126, 0, 0.25);
-    transition: all 0.3s ease;
+    transition: var(--transition-fast);
 }
 
 .dark-theme .submit-button:hover {
-    background: var(--button-hover-color);
+    background: var(--primary-hover);
     transform: translateY(-2px);
     box-shadow: 0 6px 24px rgba(255, 126, 0, 0.4);
 }
@@ -406,7 +406,7 @@
 .light-theme .submit-button {
     background: linear-gradient(135deg, #ff8c00 0%, var(--primary-color) 100%);
     box-shadow: 0 4px 12px rgba(255, 140, 0, 0.25);
-    transition: all 0.3s ease;
+    transition: var(--transition-fast);
     color: #ffffff;
     font-weight: var(--weight-semi-bold);
 }

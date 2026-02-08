@@ -24,6 +24,7 @@
   /* Z index */
   --z-1: 1;
   --z-10: 10;
+  --z-1000: 1000;
 
   /* ===== COLORS ===== */
   
@@ -32,10 +33,12 @@
   --white: rgba(255,255,255,1);
   --text-95: rgba(245, 245, 245, 0.918);
   --text-dark: rgba(51,51,51,1);
+  --text-dark-90: rgba(51, 51, 51, 0.9);
   
   /* Primary / Brand Colors */
   --primary-color: rgba(255,126,0,1);
   --primary-strong: rgba(255,102,0,1);
+  --primary-hover: rgba(230, 104, 10, 1);
   --accent-orange: rgba(252,95,22,1);
   --accent-orange-opaque: rgba(252, 95, 22, 0.863);
   --accent-gold: rgba(196,129,4,1);
@@ -55,30 +58,41 @@
   --overlay-white-02: rgba(255,255,255,0.02);
   --muted-white: rgba(255,255,255,0.302);
   --dark-overlay: rgba(30, 30, 35, 0.98);
+  --bg-contact-light: rgba(255, 248, 240, 0.6);
+  --bg-about-light: rgba(255, 252, 248, 0.6);
+  --bg-white-95: rgba(255, 255, 255, 0.95);
+  --bg-white-50: rgba(255, 255, 255, 0.5);
+  --bg-overlay-dark: rgba(0, 0, 0, 0.5);
   
   /* Border Colors */
   --border-light: rgba(204,204,204,1);
   --border-dark-30: rgba(8,7,7,0.302);
   --border-input-dark: rgba(119,119,119,1);
   --border-dark-text: rgba(165, 175, 184, 0.8);
+  --border-header: rgba(0, 0, 0, 0.226);
+  --border-primary-15: rgba(255, 126, 0, 0.15);
+  --border-orange-15: rgba(255, 150, 50, 0.15);
+  --border-orange-20: rgba(255, 150, 50, 0.2);
+  --border-card-light: rgba(0, 0, 0, 0.08);
+  
+  /* Text Colors */
+  --text-menu: rgba(0, 0, 1, 0.7);
+  --text-warm-dark: rgba(70, 50, 35, 0.95);
   
   /* Button / Cart Colors */
   --add-cart-bg: var(--primary-strong);
   --add-cart-border: rgba(233,155,10,1);
   --add-cart-border-hover: rgba(156,104,5,1);
-  --add-cart-hover: var(--primary-color);
   --empty-cart-bg: var(--primary-strong);
-  --empty-cart-border: var(--primary-strong);
   --empty-cart-hover: var(--primary-color);
   --pay-cart-bg: rgba(216,46,16,1);
   --pay-cart-border: rgba(192,41,15,1);
-  --button-hover-color: rgba(230, 104, 10, 1);
   
   /* Status & Semantic Colors */
   --danger: rgba(189,1,1,1);
-  --data-error-message: rgba(255, 30, 0, 1);
-  --data-error-color: rgba(240,248,255,1);
   --error-message: rgba(255, 68, 68, 1);
+  --error-message-light: rgba(255, 30, 0, 1);
+  --error-bg: rgba(240,248,255,1);
   
   /* Decorative / Animation Colors */
   --dot-gradient-start: var(--logo-grad-end);
@@ -98,15 +112,24 @@
   --shadow-sm: 0 2px 8px rgba(53, 53, 53, 0.15);
   --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.2);
   --shadow-dark-input: 1px 0px 5px 0px rgba(0, 0, 0, 0.5);
-  --shadow-drop-sm: 0 2px 6px rgba(0, 0, 0, 0.1);
-  --shadow-drop-md: 0 4px 12px rgba(0, 0, 0, 0.18);
-  --shadow-border-contact: 0 0 10px rgba(0, 0, 0, 0.1);
-  --shadow-dot-large: 0 8px 24px rgba(255, 126, 0, 0.18);
+  --shadow-card-sm: 0 2px 8px rgba(0, 0, 0, 0.1);
+  --shadow-card-md: 0 4px 20px rgba(0, 0, 0, 0.08);
+  --shadow-card-hover: 0 8px 16px rgba(0, 0, 0, 0.12);
+  --shadow-primary-sm: 0 2px 6px rgba(255, 126, 0, 0.1);
+  --shadow-primary-md: 0 4px 12px rgba(255, 126, 0, 0.25);
+  --shadow-primary-lg: 0 6px 20px rgba(255, 126, 0, 0.3);
+  --shadow-primary-xl: 0 6px 20px rgba(255, 126, 0, 0.35);
+  --shadow-focus: 0 0 0 3px rgba(255, 126, 0, 0.1);
 
-  /* Border Radius - valores que se repiten */
+  /* Border Radius */
   --br-md: 0.5rem;
   --br-lg: 1rem;
   --br-xl: 1.5rem;
+
+  /* Transitions */
+  --transition-fast: 0.3s ease;
+  --transition-smooth: 0.5s cubic-bezier(0.68,-0.55,0.27,1.55);
+  --transition-bounce: 0.6s cubic-bezier(0.77,0,0.175,1);
 }
 
 /* Theme tweaks */

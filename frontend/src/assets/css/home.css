@@ -73,7 +73,7 @@
 .welcome-animation:hover .welcome-guitar {
   transform: translateX(-40px) scale(1.5);
   opacity: 1;
-  filter: drop-shadow(0 4px 12px rgba(0,0,0,0.18));
+  filter: drop-shadow(var(--shadow-drop-lg));
 }
 
 .store-title{
@@ -110,9 +110,8 @@
 .view-products:hover, .why-us:hover{
   background: var(--button-hover-color);
   transform: translateY(-3px);
-  box-shadow: 0 6px 20px rgba(255, 126, 0, 0.35);
+	box-shadow: var(--shadow-primary-xl);
 }
-
 .guitar-home{
   border-radius: var(--br-xl);
   box-shadow: var(--shadow-md);
