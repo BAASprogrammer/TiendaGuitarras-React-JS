@@ -1,4 +1,5 @@
 import { useState } from "react";
+import useCurrency from '../hooks/useCurrency';
 
 export default function Products({dato, addCart, cart}){
     const [filterCategory, setFilterCategory] = useState('todas');    
@@ -6,6 +7,7 @@ export default function Products({dato, addCart, cart}){
     
     // Pasar filteredData a Products
     const dataToShow = filteredData; 
+    const formatCurrency = useCurrency(); 
     
     const handleAddCart = (item) =>{
         const existingProducts = cart.some((product) => product.id === item.id) //some devuelve true cuando se cumple la condicion
@@ -35,8 +37,7 @@ export default function Products({dato, addCart, cart}){
                         <div className="product-container">
                             <div className="product-img"><span className="category">{item.categoria}</span><img src={require(`../assets/images/products/${item.imagen}`)} alt="Guitarra"></img></div>
                             <div className="product-data"><p className="product-name font-weight-800">{item.nombre}</p>
-                                <p className="product-description">{item.descripcion}</p>
-                                <p className="product-value">${item.precio}</p>
+                                <p className="product-value">{formatCurrency(item.precio)}</p>
                                 <button className="add-cart-button" title="Agregar producto al carro de compras" disabled = {cart.some((dataToShow) => dataToShow.id === item.id)} onClick={() => handleAddCart(item)}>
                                     {cart.some((dataToShow) => dataToShow.id === item.id) ? 'Producto agregado':'Agregar al carrito'}
                                 </button>

@@ -1,10 +1,12 @@
 import { useEffect, useState } from 'react';
+import useCurrency from '../hooks/useCurrency';
 
 export default function ShoppingCart({dataCart,deleteCart, emptyCart}){
     const [cantidad, setCantidad] = useState({})
     const [message,setMessage] = useState({})
     const [isOpenCart, setIsOpenCart] = useState(false)
     const [confirmDelete, setConfirmDelete] = useState(null)
+    const formatCurrency = useCurrency()
 
     const dataMessage = {
         "pay": "Función no disponible",
@@ -155,7 +157,7 @@ export default function ShoppingCart({dataCart,deleteCart, emptyCart}){
                                                 <div key={item.id} className="grid modal-row">
                                                     <div className="grid-item-modal"><img src={require(`../assets/images/products/${item.imagen}`)} alt="Guitarra"></img></div>
                                                     <div className="grid-item-modal"><label title={item.nombre}>{item.nombre}</label></div>
-                                                    <div className="grid-item-modal"><label>${item.precio}</label></div>
+                                                    <div className="grid-item-modal"><label>${formatCurrency(item.precio)}</label></div>
                                                     <div className="grid-item-modal">
                                                         <div className='flex justify-center align-center gap-1 quantity-container'>
                                                             <button className="add-del-cart" onClick={() => deleteProduct(item.id)} title='Disminuir cantidad'>-</button>
@@ -169,7 +171,7 @@ export default function ShoppingCart({dataCart,deleteCart, emptyCart}){
                                         <div>
                                             <div className="grid modal-row footer">
                                                 <div className="grid-item-modal right" >
-                                                    Total a pagar : $ {dataCart.reduce((total, item) => Math.floor(((total + item.precio)*cantidad[item.id] || 1)*100)/100 || item.precio , 0)}
+                                                    Total a pagar : {formatCurrency(dataCart.reduce((acc, item) => acc + (item.precio * (cantidad[item.id] || 1)), 0))}
                                                 </div>
                                                 {dataCart.length !== 0 &&(
                                                     <div>
