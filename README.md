@@ -65,7 +65,7 @@ Tienda de guitarras modern y responsiva desarrollada con React. Ofrece una exper
 
 ### 1. **Clonar o descargar el repositorio**
 ```bash
-git clone <url-del-repositorio>
+git clone https://github.com/BAASprogrammer/GuitarStore-React-JS.git
 cd GuitarStore-React-JS/frontend
 ```
 
@@ -291,4 +291,4 @@ Para consultas o sugerencias sobre el proyecto:
 ---
 
 **Última actualización:** Marzo 2024  
-**Versión:** 1.4.0
+**Versión:** 1.5.0
