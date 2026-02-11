@@ -1,9 +1,14 @@
-import { useEffect, useState, useMemo } from 'react';
+import { useEffect, useState, useMemo, useCallback } from 'react';
 import useCurrency from '../hooks/useCurrency';
 import ConfirmModal from './ConfirmModal';
+import CartItem from './cart/CartItem';
+import CartHeader from './cart/CartHeader';
+import CartFooter from './cart/CartFooter';
+import EmptyCart from './cart/EmptyCart';
 import dataMessage from '../constants/messages';
 import { getModalConfigs } from '../constants/cartModals';
-import { MAX_QUANTITY } from '../constants/config';
+
+const MAX_QUANTITY = 10;
 
 export default function ShoppingCart({dataCart,deleteCart, emptyCart}){
     const [cantidad, setCantidad] = useState({})
@@ -14,15 +19,15 @@ export default function ShoppingCart({dataCart,deleteCart, emptyCart}){
     const formatCurrency = useCurrency()
 
     // Helper: get product name by id
-    const getProductName = (id) => dataCart.find(item => String(item.id) === String(id))?.nombre || 'Producto';
+    const getProductName = useCallback((id) => dataCart.find(item => String(item.id) === String(id))?.nombre || 'Producto', [dataCart]);
     /* Logic to open and close the shopping cart modal */
-    const handleCart = () => {
-        setIsOpenCart(!isOpenCart);
-    }
+    const handleCart = useCallback(() => {
+        setIsOpenCart(i => !i);
+    }, []);
     /* Logic to empty the shopping cart and close the modal */
-    const handleEmptyCart = () => {
+    const handleEmptyCart = useCallback(() => {
         setMessage({ type: "emptyCart" });
-    }
+    }, []);
     
     /* Logic to update the quantity of products in the shopping cart when dataCart changes */
     useEffect(() => {
@@ -44,7 +49,7 @@ export default function ShoppingCart({dataCart,deleteCart, emptyCart}){
 
 
     // Decrease the quantity of a product added to the shopping cart
-    const deleteProduct = (idproducto) => {
+    const deleteProduct = useCallback((idproducto) => {
         setCantidad((prevCantidad) =>{
             const newcantidad = {...prevCantidad} // creates a copy of the original object
             if(newcantidad[idproducto] > 1) {
@@ -55,9 +60,9 @@ export default function ShoppingCart({dataCart,deleteCart, emptyCart}){
             }
             return newcantidad
         })
-    }
+    }, []);
     // Increase the quantity of a product added to the shopping cart
-    const addProduct = (idproducto) => {
+    const addProduct = useCallback((idproducto) => {
         setCantidad((prevCantidad)=>{
             const newcantidad = {...prevCantidad}
             if (newcantidad[idproducto] >= MAX_QUANTITY) {
@@ -69,9 +74,9 @@ export default function ShoppingCart({dataCart,deleteCart, emptyCart}){
                 return newcantidad;
             }
         })
-    }
+    }, [getProductName]);
     // Logic that executes when the input value changes
-    const handleChange = (event, id) =>{
+    const handleChange = useCallback((event, id) =>{
         let eventvalue = /^0+$/.test(event.target.value) || event.target.value === "" ? 0 : parseInt(event.target.value)
         const newcantidad = {...cantidad}
         if (eventvalue > MAX_QUANTITY) {
@@ -84,21 +89,21 @@ export default function ShoppingCart({dataCart,deleteCart, emptyCart}){
             newcantidad[id] = eventvalue;
         }
         setCantidad(newcantidad)
-    }
+    }, [cantidad, getProductName]);
 
     // Logic to handle mouseover and mouseout events
 
-    const handleMouseOverPayCart = () => {
+    const handleMouseOverPayCart = useCallback(() => {
         if (!message.type) {
             setMessage({ type: "pay" }); // Changes 'message' to indicate pay message only if no other modal is open
         }
-    }
+    }, [message.type]);
 
-    const handleMouseOutPayCart = () => { 
+    const handleMouseOutPayCart = useCallback(() => { 
         setMessage({}); // Clears the message
-    }
+    }, []);
 
-    const confirmDeleteProduct = () => {
+    const confirmDeleteProduct = useCallback(() => {
         deleteCart(confirmDelete);
         setCantidad((prevCantidad) => {
             const newcant = {...prevCantidad};
@@ -108,15 +113,18 @@ export default function ShoppingCart({dataCart,deleteCart, emptyCart}){
         setConfirmDelete(null);
         setMessage({ type: "delete" }); // Show success message
         setIsOpenCart(false); // Close the shopping cart after deletion
-    }
+    }, [confirmDelete, deleteCart]);
 
-    const cancelDeleteProduct = () => {
+    const cancelDeleteProduct = useCallback(() => {
         setConfirmDelete(null);
         setMessage({});
-    }
+    }, []);
 
     // Calculate total items in cart
     const totalCount = useMemo(() => dataCart.reduce((acc, item) => acc + (Number(cantidad[item.id]) || 1), 0), [dataCart, cantidad]);
+
+    // Calculate total price in cart
+    const totalPrice = useMemo(() => dataCart.reduce((acc, item) => acc + (item.precio * (cantidad[item.id] || 1)), 0), [dataCart, cantidad]);
 
     // Helper: formats the badge (shows "999+" if > 999)
     const formatBadgeCount = (count) => {
@@ -158,44 +166,33 @@ export default function ShoppingCart({dataCart,deleteCart, emptyCart}){
                             <h3>Productos <span>Carro</span></h3>
                         </div>
                         <div className="contenedor-modal center">
-                            <div className="grid modal-row header">
-                                <div className="grid-item-modal font-weight-800"><label>Imagen</label></div>
-                                <div className="grid-item-modal font-weight-800"><label>Nombre</label></div>
-                                <div className="grid-item-modal font-weight-800"><label>Precio</label></div>
-                                <div className="grid-item-modal font-weight-800"><label>Cantidad</label></div>
-                            </div>
+                            <CartHeader />
                             <div>
                                 {dataCart && (
                                     <div>
                                         <div className='product-data-container'>
                                             {dataCart.map((item) => (
-                                                <div key={item.id} className="grid modal-row">
-                                                    <div className="grid-item-modal"><img src={require(`../assets/images/products/${item.imagen}`)} alt="Guitarra"></img></div>
-                                                    <div className="grid-item-modal"><label title={item.nombre}>{item.nombre}</label></div>
-                                                    <div className="grid-item-modal"><label>{formatCurrency(item.precio)}</label></div>
-                                                    <div className="grid-item-modal">
-                                                        <div className='flex justify-center align-center gap-1 quantity-container'>
-                                                            <button className="add-del-cart" onClick={() => deleteProduct(item.id)} title='Disminuir cantidad'>-</button>
-                                                            <input className='quantity-cart' value={cantidad[item.id] || 1} onChange={(e)=>handleChange(e, item.id)}></input>
-                                                            <button className="add-del-cart" onClick={() => addProduct(item.id)} title='Aumentar cantidad'>+</button>
-                                                        </div>
-                                                    </div>
-                                                </div>
+                                                <CartItem
+                                                    key={item.id}
+                                                    item={item}
+                                                    cantidad={cantidad}
+                                                    addProduct={addProduct}
+                                                    deleteProduct={deleteProduct}
+                                                    handleChange={handleChange}
+                                                    formatCurrency={formatCurrency}
+                                                />
                                             ))}
                                         </div>
                                         <div>
-                                            <div className="grid modal-row footer">
-                                                <div className="grid-item-modal right" >
-                                                    Total a pagar : {formatCurrency(dataCart.reduce((acc, item) => acc + (item.precio * (cantidad[item.id] || 1)), 0))}
-                                                </div>
-                                                {dataCart.length !== 0 &&(
-                                                    <div>
-                                                        <button className="grid-item-modal center empty-cart-button" title='Vaciar productos del carro de compras' width="180" onClick={handleEmptyCart}>Vaciar carrito</button>
-                                                        {message.type === "pay" && ( <div className='pay-message'>{dataMessage[message.type].message}  </div>)}
-                                                        <button className="grid-item-modal center pay-cart-button" title='Realizar pago de los productos' width="180" onMouseOver={handleMouseOverPayCart} onMouseOut={handleMouseOutPayCart}>Pagar</button>
-                                                    </div>
-                                                )}
-                                            </div>
+                                            <CartFooter
+                                                totalPrice={totalPrice}
+                                                formatCurrency={formatCurrency}
+                                                handleEmptyCart={handleEmptyCart}
+                                                message={message}
+                                                dataMessage={dataMessage}
+                                                handleMouseOverPayCart={handleMouseOverPayCart}
+                                                handleMouseOutPayCart={handleMouseOutPayCart}
+                                            />
                                         </div>
                                     </div>
                                 )}
@@ -203,10 +200,7 @@ export default function ShoppingCart({dataCart,deleteCart, emptyCart}){
                         </div>
                     </div>
                     ) : (
-                        <div className={`modal-shoppingcart status-shoppingcart empty-shoppingcart center ${isOpenCart ? 'data-shoppingcart' : 'closed-shoppingcart'}`}>
-                            <span className='close-shopping-cart' onClick={handleCart}>x</span>
-                            <h3>El carrito está vacío</h3>
-                        </div>
+                        <EmptyCart isOpenCart={isOpenCart} handleCart={handleCart} />
                     )}
                 </div>
             </div>

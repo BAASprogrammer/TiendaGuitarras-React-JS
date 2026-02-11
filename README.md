@@ -110,7 +110,11 @@ frontend/
 │   ├── components/
 │   │   ├── Header.jsx     # Encabezado con navegación
 │   │   ├── Footer.jsx     # Pie de página
-│   │   ├── ShoppingCart.jsx  # Carrito modal con funcionalidades avanzadas
+│   │   ├── cart/          # Componentes del carrito de compras
+│   │   │   ├── CartItem.jsx     # Elemento individual del carrito
+│   │   │   ├── CartHeader.jsx   # Encabezado de la tabla del carrito
+│   │   │   ├── CartFooter.jsx   # Pie del carrito con total y acciones
+│   │   │   └── EmptyCart.jsx    # Mensaje para carrito vacío
 │   │   ├── ConfirmModal.jsx   # Modal reutilizable para confirmaciones
 │   │   ├── Menu.jsx       # Menú de navegación
 │   │   ├── Switch.jsx     # Toggle dark/light mode
@@ -156,6 +160,8 @@ frontend/
 - **Formateo de Moneda**: Hook personalizado `useCurrency` para formato CLP chileno
 - **Mensajes Automáticos**: Notificaciones temporales que se auto-eliminan, incluyendo confirmación de vaciado exitoso
 - **Gestión de Estado**: Lógica robusta con manejo de errores y validaciones
+- **Optimización de Rendimiento**: Uso de `useMemo` para cálculos de totales y `useCallback` para funciones de manejo de eventos
+- **Arquitectura Modular**: Componente dividido en subcomponentes (`CartItem`, `CartHeader`, `CartFooter`, `EmptyCart`) para mejor mantenibilidad
 
 ### **Arquitectura Modular**
 - **Componentes Reutilizables**: `ConfirmModal` adaptable a diferentes contextos
@@ -198,7 +204,7 @@ frontend/
 
 ## 📊 Características Técnicas Destacadas
 
-✅ **React Hooks**: useState, useEffect, useContext, useCallback
+✅ **React Hooks**: useState, useEffect, useContext, useMemo, useCallback
 ✅ **Custom Hooks**: useCurrency para formateo de moneda CLP
 ✅ **Context API**: Gestión de temas (dark/light)
 ✅ **Componentes Reutilizables**: ConfirmModal para confirmaciones, con configuraciones separadas
@@ -285,5 +291,5 @@ Para consultas o sugerencias sobre el proyecto:
 
 ---
 
-**Última actualización:** Febrero 2026  
-**Versión:** 1.2.0
+**Última actualización:** Marzo 2024  
+**Versión:** 1.3.0
