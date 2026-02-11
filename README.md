@@ -110,10 +110,15 @@ frontend/
 │   ├── components/
 │   │   ├── Header.jsx     # Encabezado con navegación
 │   │   ├── Footer.jsx     # Pie de página
-│   │   ├── ShoppingCart.jsx  # Carrito modal
+│   │   ├── ShoppingCart.jsx  # Carrito modal con funcionalidades avanzadas
+│   │   ├── ConfirmModal.jsx   # Modal reutilizable para confirmaciones
 │   │   ├── Menu.jsx       # Menú de navegación
 │   │   ├── Switch.jsx     # Toggle dark/light mode
 │   │   └── ...
+│   ├── hooks/
+│   │   └── useCurrency.js # Hook personalizado para formateo de moneda CLP
+│   ├── constants/
+│   │   └── messages.js    # Mensajes centralizados para modales y notificaciones
 │   ├── data/
 │   │   └── guitars.json   # Datos de productos estáticos
 │   └── App.jsx            # Componente principal y ruteo
@@ -142,6 +147,23 @@ frontend/
 
 ---
 
+## 🚀 Características Avanzadas
+
+### **Sistema de Carrito Inteligente**
+- **Límites de Cantidad**: Máximo 10 unidades por producto con validación automática
+- **Confirmaciones Interactivas**: Modal reutilizable para eliminaciones y acciones críticas
+- **Formateo de Moneda**: Hook personalizado `useCurrency` para formato CLP chileno
+- **Mensajes Automáticos**: Notificaciones temporales que se auto-eliminan
+- **Gestión de Estado**: Lógica robusta con manejo de errores y validaciones
+
+### **Arquitectura Modular**
+- **Componentes Reutilizables**: `ConfirmModal` adaptable a diferentes contextos
+- **Hooks Personalizados**: `useCurrency` para lógica de negocio reutilizable
+- **Constantes Centralizadas**: Mensajes y configuraciones en archivos dedicados
+- **Separación de Responsabilidades**: Lógica, estilos y datos organizados
+
+---
+
 ## 🔄 Flujo de Funcionamiento
 
 1. **Página de Inicio (Home)**
@@ -156,9 +178,11 @@ frontend/
 
 3. **Carrito**
    - Modal overlay con productos agregados
-   - Control de cantidades
-   - Cálculo automático de total
-   - Opción vaciar carrito
+   - Control de cantidades con límites (máx. 10 por producto)
+   - Confirmación de eliminación con modal reutilizable
+   - Cálculo automático de total con formato CLP
+   - Mensajes automáticos de confirmación
+   - Opción vaciar carrito con confirmación
 
 4. **Contacto**
    - Formulario con validación
@@ -173,14 +197,17 @@ frontend/
 
 ## 📊 Características Técnicas Destacadas
 
-✅ **React Hooks**: useState, useEffect, useContext
+✅ **React Hooks**: useState, useEffect, useContext, useCallback
+✅ **Custom Hooks**: useCurrency para formateo de moneda CLP
 ✅ **Context API**: Gestión de temas (dark/light)
+✅ **Componentes Reutilizables**: ConfirmModal para confirmaciones
 ✅ **React Router**: Navegación SPA sin recargas
 ✅ **Validación de Formularios**: Regex, validación condicional
 ✅ **CSS Variables**: Reutilización de valores de diseño
 ✅ **Clases Utilitarias**: Enfoque utility-first para layouts
 ✅ **Responsive Design**: Mobile-first y adaptable
 ✅ **Accesibilidad WCAG**: aria-labels, semantic HTML
+✅ **Gestión Centralizada**: Mensajes y constantes organizados
 
 ---
 
@@ -207,7 +234,7 @@ vercel
 
 ---
 
-## 📦 Datos de Productos
+## 📦 Datos y Configuración
 
 Los datos de productos se encuentran en [`src/data/guitars.json`](frontend/src/data/guitars.json) y contienen información como:
 - ID único
@@ -215,6 +242,15 @@ Los datos de productos se encuentran en [`src/data/guitars.json`](frontend/src/d
 - Kategoría (clásica, acústica, eléctrica, bajo)
 - Precio
 - Imagen
+
+Los mensajes y constantes centralizados están en [`src/constants/messages.js`](frontend/src/constants/messages.js), incluyendo:
+- Títulos y mensajes para modales de confirmación
+- Mensajes de notificación automática
+- Configuraciones de límites y validaciones
+
+El hook personalizado `useCurrency` en [`src/hooks/useCurrency.js`](frontend/src/hooks/useCurrency.js) maneja:
+- Formateo de números a moneda CLP chilena
+- Configuración regional y símbolos
 
 ---
 
@@ -244,5 +280,5 @@ Para consultas o sugerencias sobre el proyecto:
 
 ---
 
-**Última actualización:** Febrero 2026  
-**Versión:** 1.0.0
+**Última actualización:** Marzo 2024  
+**Versión:** 1.1.0
