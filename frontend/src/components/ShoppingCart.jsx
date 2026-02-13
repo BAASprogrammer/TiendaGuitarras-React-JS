@@ -10,9 +10,9 @@ import { getModalConfigs } from '../constants/cartModals';
 
 const MAX_QUANTITY = 10;
 
-export default function ShoppingCart({dataCart,deleteCart, emptyCart}){
+export default function ShoppingCart({ dataCart, deleteCart, emptyCart }) {
     const [cantidad, setCantidad] = useState({})
-    const [message,setMessage] = useState({})
+    const [message, setMessage] = useState({})
     const [isOpenCart, setIsOpenCart] = useState(false)
     const [confirmDelete, setConfirmDelete] = useState(null)
 
@@ -28,12 +28,12 @@ export default function ShoppingCart({dataCart,deleteCart, emptyCart}){
     const handleEmptyCart = useCallback(() => {
         setMessage({ type: "emptyCart" });
     }, []);
-    
+
     /* Logic to update the quantity of products in the shopping cart when dataCart changes */
     useEffect(() => {
-        setCantidad((prevCantidad)=> {
+        setCantidad((prevCantidad) => {
             // if the cart is empty, return an empty object
-            if (dataCart.length === 0 ) {
+            if (dataCart.length === 0) {
                 return {}
             }
             // use reduce to return the quantity from a copy of the previous quantity -> prevCantidad
@@ -42,7 +42,7 @@ export default function ShoppingCart({dataCart,deleteCart, emptyCart}){
                     acc[item.id] = 1
                 }
                 return acc
-            },{...prevCantidad})
+            }, { ...prevCantidad })
             return newcantidad
         })
     }, [dataCart]);
@@ -50,11 +50,11 @@ export default function ShoppingCart({dataCart,deleteCart, emptyCart}){
 
     // Decrease the quantity of a product added to the shopping cart
     const deleteProduct = useCallback((idproducto) => {
-        setCantidad((prevCantidad) =>{
-            const newcantidad = {...prevCantidad} // creates a copy of the original object
-            if(newcantidad[idproducto] > 1) {
-                newcantidad[idproducto] -= 1 
-            } else if(newcantidad[idproducto] === 1) {
+        setCantidad((prevCantidad) => {
+            const newcantidad = { ...prevCantidad } // creates a copy of the original object
+            if (newcantidad[idproducto] > 1) {
+                newcantidad[idproducto] -= 1
+            } else if (newcantidad[idproducto] === 1) {
                 setConfirmDelete(idproducto);
                 setMessage({ type: "todelete" });
             }
@@ -63,8 +63,8 @@ export default function ShoppingCart({dataCart,deleteCart, emptyCart}){
     }, []);
     // Increase the quantity of a product added to the shopping cart
     const addProduct = useCallback((idproducto) => {
-        setCantidad((prevCantidad)=>{
-            const newcantidad = {...prevCantidad}
+        setCantidad((prevCantidad) => {
+            const newcantidad = { ...prevCantidad }
             if (newcantidad[idproducto] >= MAX_QUANTITY) {
                 const productName = getProductName(idproducto);
                 setMessage({ type: "max", productName });
@@ -76,9 +76,9 @@ export default function ShoppingCart({dataCart,deleteCart, emptyCart}){
         })
     }, [getProductName]);
     // Logic that executes when the input value changes
-    const handleChange = useCallback((event, id) =>{
+    const handleChange = useCallback((event, id) => {
         let eventvalue = /^0+$/.test(event.target.value) || event.target.value === "" ? 0 : parseInt(event.target.value)
-        const newcantidad = {...cantidad}
+        const newcantidad = { ...cantidad }
         if (eventvalue > MAX_QUANTITY) {
             const productName = getProductName(id);
             setMessage({ type: "max", productName });
@@ -99,14 +99,14 @@ export default function ShoppingCart({dataCart,deleteCart, emptyCart}){
         }
     }, [message.type]);
 
-    const handleMouseOutPayCart = useCallback(() => { 
+    const handleMouseOutPayCart = useCallback(() => {
         setMessage({}); // Clears the message
     }, []);
 
     const confirmDeleteProduct = useCallback(() => {
         deleteCart(confirmDelete);
         setCantidad((prevCantidad) => {
-            const newcant = {...prevCantidad};
+            const newcant = { ...prevCantidad };
             delete newcant[confirmDelete];
             return newcant;
         });
@@ -137,72 +137,72 @@ export default function ShoppingCart({dataCart,deleteCart, emptyCart}){
     // Modal configurations
     const modalConfigs = getModalConfigs(dataMessage, MAX_QUANTITY, message, cancelDeleteProduct, confirmDeleteProduct, setMessage, emptyCart, setIsOpenCart);
 
-    return(<div className="right shoppingcart">
-                {isOpenCart && <div className='overlay-shopping-cart' onClick={message.type ? () => {} : handleCart}></div>}
-                {modalConfigs.map(config => {
-                    const { key, ...configProps } = config;
-                    return (
-                        <ConfirmModal
-                            key={key}
-                            isOpen={message.type === config.type}
-                            {...configProps}
-                        />
-                    );
-                })}
-                <div className="container-shoppingcart center">
-                    <button className='button-shoppingcart' title='Carrito de compras'>
-                        <img className="header-img pointer img-shoppingcart" src={require('../assets/images/header/carro.png')} alt="Carrito" width={20} onClick={handleCart}></img>
-                    {/* Badge with quantity */}
-                    {totalCount > 0 && (
-                        <span className="cart-badge" aria-live="polite" title={`${totalCount} producto(s) en carrito`}>
-                            {formatBadgeCount(totalCount)}
-                        </span>
-                    )}
-                    </button>
-                    {dataCart.length !== 0 ? (
-                    <div className={`modal-shoppingcart ${isOpenCart ? 'data-shoppingcart' : 'closed-shoppingcart'} right`}>
-                        <span className='close-shopping-cart' onClick={handleCart}>x</span>
-                        <div className="status-shoppingcart center">
-                            <h3>Productos <span>Carro</span></h3>
-                        </div>
-                        <div className="contenedor-modal center">
-                            <CartHeader />
-                            <div>
-                                {dataCart && (
-                                    <div>
-                                        <div className='product-data-container'>
-                                            {dataCart.map((item) => (
-                                                <CartItem
-                                                    key={item.id}
-                                                    item={item}
-                                                    cantidad={cantidad}
-                                                    addProduct={addProduct}
-                                                    deleteProduct={deleteProduct}
-                                                    handleChange={handleChange}
-                                                    formatCurrency={formatCurrency}
-                                                />
-                                            ))}
-                                        </div>
-                                        <div>
-                                            <CartFooter
-                                                totalPrice={totalPrice}
+    return (<div className="right shoppingcart">
+        {isOpenCart && <div className='overlay-shopping-cart' onClick={message.type ? () => { } : handleCart}></div>}
+        {modalConfigs.map(config => {
+            const { key, ...configProps } = config;
+            return (
+                <ConfirmModal
+                    key={key}
+                    isOpen={message.type === config.type}
+                    {...configProps}
+                />
+            );
+        })}
+        <div className="container-shoppingcart center">
+            <button className='button-shoppingcart' title='Carrito de compras'>
+                <img className="header-img pointer img-shoppingcart" src={require('../assets/images/header/carro.png')} alt="Carrito" width={20} onClick={handleCart}></img>
+                {/* Badge with quantity */}
+                {totalCount > 0 && (
+                    <span className="cart-badge" aria-live="polite" title={`${totalCount} producto(s) en carrito`}>
+                        {formatBadgeCount(totalCount)}
+                    </span>
+                )}
+            </button>
+            {dataCart.length !== 0 ? (
+                <div className={`modal-shoppingcart ${isOpenCart ? 'data-shoppingcart' : 'closed-shoppingcart'} right`}>
+                    <span className='close-shopping-cart' onClick={handleCart}>&times;</span>
+                    <div className="status-shoppingcart center">
+                        <h3>Productos <span>Carro</span></h3>
+                    </div>
+                    <div className="contenedor-modal center">
+                        <CartHeader />
+                        <div>
+                            {dataCart && (
+                                <div>
+                                    <div className='product-data-container'>
+                                        {dataCart.map((item) => (
+                                            <CartItem
+                                                key={item.id}
+                                                item={item}
+                                                cantidad={cantidad}
+                                                addProduct={addProduct}
+                                                deleteProduct={deleteProduct}
+                                                handleChange={handleChange}
                                                 formatCurrency={formatCurrency}
-                                                handleEmptyCart={handleEmptyCart}
-                                                message={message}
-                                                dataMessage={dataMessage}
-                                                handleMouseOverPayCart={handleMouseOverPayCart}
-                                                handleMouseOutPayCart={handleMouseOutPayCart}
                                             />
-                                        </div>
+                                        ))}
                                     </div>
-                                )}
-                            </div>
+                                    <div>
+                                        <CartFooter
+                                            totalPrice={totalPrice}
+                                            formatCurrency={formatCurrency}
+                                            handleEmptyCart={handleEmptyCart}
+                                            message={message}
+                                            dataMessage={dataMessage}
+                                            handleMouseOverPayCart={handleMouseOverPayCart}
+                                            handleMouseOutPayCart={handleMouseOutPayCart}
+                                        />
+                                    </div>
+                                </div>
+                            )}
                         </div>
                     </div>
-                    ) : (
-                        <EmptyCart isOpenCart={isOpenCart} handleCart={handleCart} />
-                    )}
                 </div>
-            </div>
-        )
+            ) : (
+                <EmptyCart isOpenCart={isOpenCart} handleCart={handleCart} />
+            )}
+        </div>
+    </div>
+    )
 }

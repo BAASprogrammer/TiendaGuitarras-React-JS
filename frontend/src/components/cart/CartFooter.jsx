@@ -12,27 +12,28 @@ export default function CartFooter({
             <div className="grid-item-modal right">
                 Total a pagar : {formatCurrency(totalPrice)}
             </div>
-            <div>
+            <div className="cart-buttons-group">
                 <button
-                    className="grid-item-modal center empty-cart-button"
+                    className="empty-cart-button"
                     title='Vaciar productos del carro de compras'
-                    width="180"
                     onClick={handleEmptyCart}
                 >
                     Vaciar carrito
                 </button>
-                {message.type === "pay" && (
-                    <div className='pay-message'>{dataMessage[message.type].message}</div>
-                )}
-                <button
-                    className="grid-item-modal center pay-cart-button"
-                    title='Realizar pago de los productos'
-                    width="180"
-                    onMouseOver={handleMouseOverPayCart}
-                    onMouseOut={handleMouseOutPayCart}
-                >
-                    Pagar
-                </button>
+                <div className="position-relative w-full">
+                    {message.type === "pay" && (
+                        <div className='pay-message'>{dataMessage[message.type].message}</div>
+                    )}
+                    <button
+                        className="pay-cart-button"
+                        title='Realizar pago de los productos'
+                        onMouseOver={handleMouseOverPayCart}
+                        onMouseOut={handleMouseOutPayCart}
+                        disabled={totalPrice === 0}
+                    >
+                        Pagar
+                    </button>
+                </div>
             </div>
         </div>
     );

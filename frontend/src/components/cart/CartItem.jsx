@@ -11,7 +11,7 @@ export default function CartItem({ item, cantidad, addProduct, deleteProduct, ha
                 <label>{formatCurrency(item.precio)}</label>
             </div>
             <div className="grid-item-modal">
-                <div className='flex justify-center align-center gap-1 quantity-container'>
+                <div className='flex justify-center align-center quantity-container'>
                     <button className="add-del-cart" onClick={() => deleteProduct(item.id)} title='Disminuir cantidad'>-</button>
                     <input
                         className='quantity-cart'

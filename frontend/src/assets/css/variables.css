@@ -53,7 +53,11 @@
   /* Z index */
   --z-1: 1;
   --z-10: 10;
+  --z-overlay: 999;
   --z-1000: 1000;
+  /* Existing reference in header */
+  --z-modal: 1100;
+  --z-cart: 1200;
 
   /* ===== COLORS ===== */
 
@@ -153,6 +157,9 @@
   --glass-bg: rgba(255, 255, 255, 0.03);
   --glass-border: rgba(255, 255, 255, 0.08);
   --glass-bg-hover: rgba(255, 255, 255, 0.07);
+  --glass-blur: blur(15px);
+  --glass-blur-sm: blur(8px);
+  --border-glass: 1px solid var(--glass-border);
 
   /* Transitions */
   --transition-fast: 0.3s ease;
@@ -199,6 +206,14 @@
   --headphones-glow: rgba(255, 230, 0, 0.3);
   --guitar-icon-color: rgba(255, 126, 0, 0.8);
   --music-icon-color: rgba(255, 126, 0, 0.7);
+}
+
+.w-full {
+  width: 100%;
+}
+
+.h-full {
+  height: 100%;
 }
 
 /* Utility classes */
