@@ -1,8 +1,10 @@
 import { useState, useCallback, useEffect, useRef } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faGuitar, faHeadphones, faMusic } from "@fortawesome/free-solid-svg-icons";
 import "../assets/css/contact.css";
 import dataMessage from '../constants/messages';
 
-export default function Contact(){
+export default function Contact() {
     const [error, setError] = useState({});
     const [sendEmail, setSendEmail] = useState("");
     const [formData, setFormData] = useState({
@@ -76,8 +78,8 @@ export default function Contact(){
             }
         };
     }, []);
-    return(
-        <section id="contact" className="contact-section position-relative">
+    return (
+        <section id="contact" className="contact-section center">
             {/* Decorative animated dots (non-interactive, aria-hidden) */}
             <div className="dots-bg z-index-1" aria-hidden>
                 <span className="dot dot--1"></span>
@@ -88,26 +90,39 @@ export default function Contact(){
                 <span className="dot dot--6"></span>
             </div>
 
-            <div className="contact-container position-relative z-index-10">
-                <h2 className="section-title center">Contáctenos</h2>
+            <div className="contact-hero-container">
+                <h1 className="contact-title">Contácta<span className="title-accent">nos<span className="title-underline"></span></span></h1>
+                <p className="contact-subtitle">Estamos aquí para ayudarte a encontrar tu sonido perfecto</p>
+            </div>
+
+            <div className="contact-container glassmorphism-card position-relative z-index-10">
                 <form className="contact-form flex flex-column align-center" onSubmit={handleSubmit} noValidate>
-                    <div className="form-group">
-                        <label htmlFor="nombre">Nombre:</label>
-                        <input type="text" id="nombre" name="nombre" value={formData.nombre} onChange={handleChange} />
-                        {error.nombre && <p className="error-message center">{error.nombre}</p>}
+                    <div className="form-row">
+                        <div className="form-group">
+                            <label htmlFor="nombre">Nombre</label>
+                            <input type="text" id="nombre" name="nombre" placeholder="Tu nombre artístico..." value={formData.nombre} onChange={handleChange} />
+                            {error.nombre && <p className="error-message center">{error.nombre}</p>}
+                        </div>
+
+                        <div className="form-group">
+                            <label htmlFor="email">Email</label>
+                            <input type="email" id="email" name="email" placeholder="guitarrista@ejemplo.com" value={formData.email} onChange={handleChange} />
+                            {error.email && <p className="error-message center">{error.email}</p>}
+                        </div>
                     </div>
+
                     <div className="form-group">
-                        <label htmlFor="email">Email:</label>
-                        <input type="email" id="email" name="email" value={formData.email} onChange={handleChange} />
-                        {error.email && <p className="error-message center">{error.email}</p>}
-                    </div>
-                    <div className="form-group">
-                        <label htmlFor="mensaje">Mensaje:</label>
-                        <textarea id="mensaje" name="mensaje" rows="4" value={formData.mensaje} onChange={handleChange}></textarea>
+                        <label htmlFor="mensaje">¿En qué podemos ayudarte?</label>
+                        <textarea id="mensaje" name="mensaje" rows="4" placeholder="Cuéntanos tus dudas o proyectos musicales..." value={formData.mensaje} onChange={handleChange}></textarea>
                         {error.mensaje && <p className="error-message center">{error.mensaje}</p>}
                     </div>
+
                     <div>{error.general && <p className="error-message center">{error.general}</p>}</div>
-                    <button type="submit" className="submit-button">Enviar</button>
+
+                    <button type="submit" className="submit-button">
+                        Enviar Consulta
+                    </button>
+
                     {sendEmail && (
                         <div className="success-message-container center">
                             <p className="success-message">{sendEmail}</p>

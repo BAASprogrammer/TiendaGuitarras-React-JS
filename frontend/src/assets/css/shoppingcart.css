@@ -2,12 +2,13 @@
 .overlay-shopping-cart {
 	position: fixed;
 	top: 0;
-	left: 0;	
+	left: 0;
 	width: 100%;
 	height: 100%;
 	background-color: rgba(0, 0, 0, 0.5);
 	z-index: var(--z-10);
 }
+
 /* ===== MAIN MODAL ===== */
 .modal-shoppingcart {
 	width: min(90vw, 420px);
@@ -46,7 +47,7 @@
 
 .empty-shoppingcart h3 {
 	color: var(--text-dark-90);
-	font-size: 0.9rem;
+	font-size: var(--fs-body-sm);
 	margin: 0;
 }
 
@@ -64,7 +65,7 @@
 }
 
 .status-shoppingcart h3 {
-	font-size: 0.95rem;
+	font-size: var(--fs-body-sm);
 	font-weight: var(--weight-semi-bold);
 	margin: 0;
 }
@@ -105,7 +106,7 @@
 	position: relative;
 }
 
-.modal-row.footer > div:nth-child(2) {
+.modal-row.footer>div:nth-child(2) {
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -144,7 +145,7 @@
 	margin: 1rem 0;
 	background-color: var(--primary-color);
 	color: var(--white);
-	font-size: 0.9rem;
+	font-size: var(--fs-body-sm);
 	border: none;
 	border-radius: var(--br-xl);
 	font-weight: var(--weight-semi-bold);
@@ -160,7 +161,7 @@
 .empty-cart-button {
 	background-color: var(--primary-color);
 	color: var(--white) !important;
-	font-size: 0.8rem;
+	font-size: var(--fs-small);
 	border: none;
 	border-radius: var(--br-md);
 	width: 48%;
@@ -183,7 +184,7 @@
 	background-color: var(--pay-cart-bg);
 	border: none;
 	color: var(--white) !important;
-	font-size: 0.8rem;
+	font-size: var(--fs-small);
 	border-radius: var(--br-md);
 	width: 48%;
 	margin: 0.25rem;
@@ -198,7 +199,8 @@
 	opacity: 0.8;
 }
 
-.empty-cart-button, .pay-cart-button {
+.empty-cart-button,
+.pay-cart-button {
 	flex: 1 1;
 }
 
@@ -213,7 +215,7 @@
 	min-width: 24px;
 	min-height: 24px;
 	font-weight: var(--weight-bold);
-	font-size: 0.9rem;
+	font-size: var(--fs-body-sm);
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -230,7 +232,7 @@
 	position: absolute;
 	background-color: var(--accent-orange);
 	color: var(--white);
-	font-size: 0.65rem;
+	font-size: var(--fs-tiny);
 	font-weight: var(--weight-bold);
 	border-radius: 1rem;
 	padding: 1px 5px;
@@ -249,7 +251,7 @@
 	top: -40px;
 	left: 75%;
 	transform: translateX(-50%);
-	font-size: 0.75rem;
+	font-size: var(--fs-tiny);
 	padding: 0.35rem 0.75rem;
 	color: var(--white);
 	text-align: center;
@@ -272,7 +274,7 @@
 	border-radius: 4px;
 	border: 1px solid var(--border-light);
 	text-align: center;
-	font-size: 0.8rem;
+	font-size: var(--fs-small);
 	color: var(--text-dark);
 	box-sizing: border-box;
 	padding: 0.2rem;
@@ -306,7 +308,7 @@
 	word-wrap: break-word;
 	display: flex;
 	align-items: center;
-	font-size: 0.9rem;
+	font-size: var(--fs-body-sm);
 }
 
 .grid-item-modal label {
@@ -314,7 +316,8 @@
 	line-height: 1.2;
 }
 
-.grid-item-modal input.quantity-cart, .grid-item-modal .add-del-cart {
+.grid-item-modal input.quantity-cart,
+.grid-item-modal .add-del-cart {
 	font-size: 0.8rem;
 }
 
@@ -323,7 +326,7 @@
 }
 
 .modal-row.footer .grid-item-modal.right {
-	font-size: 0.9rem;
+	font-size: var(--fs-body-sm);
 	font-weight: var(--weight-bold);
 	color: var(--text-dark);
 	padding: 0.35rem 0;
@@ -332,7 +335,8 @@
 }
 
 /* ===== UTILITIES ===== */
-.cursor-pointer, button {
+.cursor-pointer,
+button {
 	cursor: pointer;
 }
 
@@ -357,11 +361,12 @@ button:disabled:hover {
 	color: var(--white);
 	padding: 0.25rem 0.5rem;
 	border-radius: 4px;
-	font-size: 0.75rem;
+	font-size: var(--fs-tiny);
 	opacity: 0;
 	visibility: hidden;
 	transition: opacity 0.2s ease, visibility 0.2s ease;
 }
+
 /* Show tooltip on hover */
 .button-shoppingcart:hover .tooltip-shoppingcart {
 	opacity: 1;
@@ -400,16 +405,19 @@ button:disabled:hover {
 		opacity: 0;
 		transform: translate(-50%, -60%);
 	}
+
 	to {
 		opacity: 1;
 		transform: translate(-50%, -50%);
 	}
 }
+
 .confirm-modal .modal-content {
 	text-align: center;
 }
+
 .confirm-modal .modal-content .modal-title {
-	font-size: clamp(1.2rem, 4vw, 1.5rem);
+	font-size: var(--fs-h3);
 	font-weight: var(--weight-bold);
 	color: var(--text-dark);
 	margin-bottom: 15px;
@@ -418,16 +426,17 @@ button:disabled:hover {
 
 .confirm-modal .modal-content p {
 	margin: clamp(15px, 3vw, 30px);
-	font-size: 1rem;
+	font-size: var(--fs-body);
 	color: var(--text-dark-90);
 	line-height: 1.5;
 	text-align: center;
 }
+
 .confirm-modal .modal-content span {
 	display: block;
 	position: relative;
 	bottom: 15px;
-	font-size: 1.2rem;
+	font-size: var(--fs-h3);
 	color: var(--primary-color);
 	font-weight: var(--weight-bold);
 
@@ -447,7 +456,7 @@ button:disabled:hover {
 	cursor: pointer;
 	color: white;
 	font-weight: var(--weight-semi-bold);
-	font-size: 1rem;
+	font-size: var(--fs-body);
 	transition: background-color 0.2s ease, transform 0.1s ease;
 	min-width: 100px;
 }
@@ -462,7 +471,7 @@ button:disabled:hover {
 
 .confirm-modal .button-container button:first-child {
 	background: var(--primary-color);
-	
+
 }
 
 .confirm-modal .button-container button:first-child:hover {
@@ -481,8 +490,9 @@ button:disabled:hover {
 	background: var(--border-light);
 	cursor: not-allowed;
 }
+
 .confirm-modal .modal-title {
-	font-size: clamp(1rem, 3vw, 1.2rem);
+	font-size: var(--fs-h3);
 	font-weight: var(--weight-bold);
 	margin-top: 2px;
 	text-align: center;
@@ -515,6 +525,7 @@ button:disabled:hover {
 .confirm-modal .close-modal:hover {
 	background-color: var(--primary-hover);
 }
+
 .modal-title-closebtn-container {
 	position: absolute;
 	top: -1px;

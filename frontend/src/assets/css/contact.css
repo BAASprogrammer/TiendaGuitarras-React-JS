@@ -1,130 +1,213 @@
-.contact-section{
-	width: clamp(320px, 45%, 600px); /* Ancho mínimo, preferido y máximo */
-	padding: clamp(1rem, 4vw, 2rem); /* Padding adaptativo */
-	background: var(--bg-contact-light);
-	border-radius: 10px;
-	box-shadow: var(--shadow-card-sm);		
-	margin: clamp(2vh, 5vh, 8vh) auto; /* Centrado y margen adaptativo */
-	overflow: hidden;
-	border: 2px solid var(--border-orange-15);
+.contact-section {
+  padding: 1rem clamp(1rem, 10vw, 3rem);
+  background-color: var(--bg-silk);
+  min-height: auto;
+  /* Remove large vertical space */
+  margin: 1rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  /* Vertical alignment */
+  position: relative;
+  overflow: hidden;
 }
 
-.section-title {
-	color: var(--primary-color);
-	font-size: clamp(1.5rem, 4vw, 2rem); /* Título responsivo */
-	margin: 0;
-}
-.form-group{
-  width: clamp(250px, 90%, 400px); /* Mejor adaptación en todos los tamaños */
+/* Hero Section */
+.contact-hero-container {
+  margin-bottom: 1rem;
+  text-align: center;
+  position: relative;
+  z-index: 10;
 }
 
-.form-group label{
-	margin: 0.5rem 0;
-	display: block;
-	font-weight: var(--weight-bold);
-	color: var(--text-warm-dark);
+.contact-title {
+  font-family: var(--font-display);
+  font-size: var(--fs-h1);
+  color: var(--text-primary);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 0.25rem;
+}
+
+.title-accent {
+  color: var(--primary-color);
+  position: relative;
+  display: inline-block;
+}
+
+.title-underline {
+  position: absolute;
+  bottom: 8px;
+  left: 0;
+  width: 100%;
+  height: 12px;
+  background: var(--primary-color);
+  opacity: 0.15;
+  z-index: -1;
+  border-radius: 4px;
+}
+
+.contact-subtitle {
+  font-size: var(--fs-body-lg);
+  color: var(--text-secondary);
+  font-weight: var(--weight-medium);
+  letter-spacing: 1px;
+}
+
+/* Contact Container / Card */
+.contact-container {
+  width: min(90vw, 500px);
+  padding: 1rem 1.5rem;
+  border-radius: var(--br-xl);
+  position: relative;
+  overflow: hidden;
+}
+
+.glassmorphism-card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--glass-border);
+  box-shadow:
+    0 25px 50px rgba(0, 0, 0, 0.25),
+    0 0 30px rgba(255, 126, 0, 0.08),
+    inset 0 0 20px rgba(255, 255, 255, 0.02);
+}
+
+.contact-form {
+  width: 100%;
+}
+
+.form-group {
+  width: 100% !important;
+  margin-bottom: 0.75rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  margin-bottom: 0.25rem;
+  font-weight: var(--weight-semi-bold);
+  color: var(--text-primary);
+  font-size: 0.95rem;
+  letter-spacing: 0.5px;
+  display: block;
 }
 
 .form-group input,
-.form-group textarea{
-	width: 100%;
-	padding: clamp(0.6rem, 2vw, 0.75rem); /* Padding adaptativo */
-	border: 2px solid var(--border-orange-20);
-	border-radius: 8px;
-	box-sizing: border-box;
-	background: var(--bg-white-95);
-	color: var(--text-warm-dark);
-	font-size: clamp(0.9rem, 2.5vw, 1rem); /* Tamaño de texto adaptativo */
-	transition: var(--transition-fast);
-	/* Mejor usabilidad táctil en móviles */
-	min-height: 44px; /* Tamaño mínimo recomendado para touch */
+.form-group textarea {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--glass-border);
+  border-radius: var(--br-md);
+  background: rgba(255, 255, 255, 0.03);
+  color: var(--text-primary);
+  font-size: var(--fs-body);
+  transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  box-sizing: border-box;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: var(--text-secondary);
+  opacity: 0.4;
 }
 
 .form-group input:focus,
 .form-group textarea:focus {
-	outline: none;
-	border-color: var(--primary-color);
-	box-shadow: var(--shadow-focus);
-	background: var(--white);
+  outline: none;
+  border-color: var(--primary-color);
+  background: rgba(255, 255, 255, 0.05);
+  box-shadow: 0 0 15px rgba(255, 126, 0, 0.15), 0 0 0 1px var(--primary-color);
+  transform: scale(1.01);
 }
 
-.form-group textarea{
+.form-row {
+  display: flex;
+  gap: 1.25rem;
+  width: 100%;
+}
+
+@media (max-width: 600px) {
+  .form-row {
+    flex-direction: column;
+    gap: 0;
+  }
+}
+
+.form-group textarea {
   resize: none;
+  min-height: 60px;
 }
 
-.error-message{
-  color: var(--error-message);
-  font-size: 0.9rem;
-  margin-top: 0.3rem;
-  font-weight: var(--weight-semi-bold);
-  margin-bottom: 0;
-}
-
-.success-message{
-  color: var(--success-message);
-  font-size: 0.9rem;
-  margin-top: 1rem;
-  font-weight: var(--weight-semi-bold);
-  margin-bottom: 0;
+/* Validation Messages */
+.error-message {
+  color: #ff4d4d;
+  font-size: 0.85rem;
+  margin-top: 0.5rem;
+  font-weight: var(--weight-medium);
 }
 
 .success-message-container {
+  margin-top: 2rem;
+  background: rgba(40, 167, 69, 0.15);
+  border: 1px solid rgba(40, 167, 69, 0.3);
+  padding: 1rem 1.5rem;
+  border-radius: var(--br-md);
   position: relative;
-  display: inline-block;
-  margin-top: 1rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.success-message {
+  color: #28a745;
+  font-weight: var(--weight-bold);
+  font-size: 0.95rem;
+  margin: 0;
 }
 
 .close-button {
   position: absolute;
-  top: 5px;
-  right: -5px;
+  top: 50%;
+  right: 1.2rem;
+  transform: translateY(-50%);
   background: none;
   border: none;
-  color: #fff;
-  background-color: #28a745;
-  font-size: 1.2rem;
-  font-weight: var(--weight-bold);
+  color: #28a745;
+  font-size: 1.5rem;
   cursor: pointer;
-  padding: 0;
-  width: 15px;
-  height: 15px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-  box-shadow: var(--shadow-primary-sm);
-  transition: var(--transition-fast);
+  line-height: 1;
 }
-.close-button:hover {
-  background-color: #218838;
-  transform: translateY(-2px);
+
+/* Submit Button */
+.submit-button {
+  width: 100% !important;
+  background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-strong) 100%);
+  color: var(--white);
+  border: none;
+  padding: 0.7rem;
+  border-radius: var(--br-lg);
+  font-weight: var(--weight-bold);
+  font-family: var(--font-display);
+  font-size: var(--fs-body-lg);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   box-shadow: var(--shadow-primary-md);
+  margin: 1rem 0;
 }
 
-.submit-button{
-	background: var(--primary-color);
-	color: var(--white);
-	border: none;
-	padding: clamp(0.6rem, 2vw, 0.75rem) clamp(1rem, 3vw, 1.5rem);
-	border-radius: 8px;
-	cursor: pointer;
-	font-weight: var(--weight-bold);
-	font-size: clamp(0.9rem, 2.5vw, 1rem);
-	margin-top: clamp(0.75rem, 2vw, 1rem);
-	width: clamp(200px, 80%, 300px); /* Botón con ancho máximo para mejor diseño */
-	box-shadow: var(--shadow-primary-md);
-	transition: var(--transition-fast);
-	min-height: 48px; /* Touch-friendly */
-}
-
-.submit-button:hover{
-	transform: translateY(-2px);
-	box-shadow: var(--shadow-primary-xl);
+.submit-button:hover {
+  background: linear-gradient(135deg, var(--primary-hover) 0%, var(--primary-color) 100%);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-primary-lg), 0 10px 20px rgba(255, 126, 0, 0.2);
 }
 
 /* Keep content above animated dots */
 .contact-container {
-  background: var(--overlay-white-02);
+  z-index: 10;
 }
 
 /* Animated dots background (decorative) */
@@ -140,54 +223,162 @@
 /* Base dot style */
 .dot {
   position: absolute;
+  background: var(--primary-color);
   border-radius: 50%;
-  background: linear-gradient(135deg, var(--dot-gradient-start) 0%, var(--dot-gradient-end) 100%);
-  filter: blur(.3px);
-  opacity: 0.95;
-  transform: translate3d(0,0,0);
+  box-shadow: 0 0 15px var(--primary-color), 0 0 5px var(--white);
+  opacity: 0.4;
   will-change: transform, opacity;
-  box-shadow: var(--shadow-dot-large);
-  animation-timing-function: linear;
+  animation-timing-function: ease-in-out;
   animation-iteration-count: infinite;
 }
 
-/* Individual variations (size, start position, duration, delay, path)
-   Duraciones aumentadas para animación más lenta y suave
-   Tamaños usando clamp() para responsividad */
-.dot--1 { width: clamp(12px, 2vw, 18px); height: clamp(12px, 2vw, 18px); left: 8%; top: -6%; animation-name: float-vertical-1; animation-duration: 20s; animation-delay: 0s; animation-timing-function: ease-in-out; animation-iteration-count: infinite; }
-.dot--2 { width: clamp(18px, 3vw, 28px); height: clamp(18px, 3vw, 28px); left: 30%; top: -12%; animation-name: float-vertical-2; animation-duration: 28s; animation-delay: 1.2s; animation-timing-function: ease-in-out; animation-iteration-count: infinite; }
-.dot--3 { width: clamp(10px, 1.5vw, 14px); height: clamp(10px, 1.5vw, 14px); left: 52%; top: -8%; animation-name: float-vertical-3; animation-duration: 24s; animation-delay: 0.5s; animation-timing-function: ease-in-out; animation-iteration-count: infinite; }
-.dot--4 { width: clamp(22px, 4vw, 36px); height: clamp(22px, 4vw, 36px); left: 72%; top: -18%; animation-name: float-vertical-2; animation-duration: 36s; animation-delay: 2s; animation-timing-function: ease-in-out; animation-iteration-count: infinite; }
-.dot--5 { width: clamp(6px, 1vw, 10px); height: clamp(6px, 1vw, 10px); left: 45%; top: -5%; animation-name: float-vertical-1; animation-duration: 18s; animation-delay: 3s; animation-timing-function: ease-in-out; animation-iteration-count: infinite; }
-.dot--6 { width: clamp(14px, 2.5vw, 22px); height: clamp(14px, 2.5vw, 22px); left: 85%; top: -10%; animation-name: float-vertical-3; animation-duration: 26s; animation-delay: 0.8s; animation-timing-function: ease-in-out; animation-iteration-count: infinite; }
+/* Individual variations (size, start position, duration, delay, path) */
+.dot--1 {
+  width: clamp(15px, 3vw, 25px);
+  height: clamp(15px, 3vw, 25px);
+  left: 8%;
+  top: -6%;
+  animation-name: float-vertical-1;
+  animation-duration: 25s;
+}
+
+.dot--2 {
+  width: clamp(20px, 5vw, 35px);
+  height: clamp(20px, 5vw, 35px);
+  left: 30%;
+  top: -12%;
+  animation-name: float-vertical-2;
+  animation-duration: 35s;
+  animation-delay: -5s;
+}
+
+.dot--3 {
+  width: clamp(10px, 2.5vw, 18px);
+  height: clamp(10px, 2.5vw, 18px);
+  left: 52%;
+  top: -8%;
+  animation-name: float-vertical-3;
+  animation-duration: 30s;
+  animation-delay: -12s;
+}
+
+.dot--4 {
+  width: clamp(25px, 6vw, 40px);
+  height: clamp(25px, 6vw, 40px);
+  left: 72%;
+  top: -18%;
+  animation-name: float-vertical-2;
+  animation-duration: 45s;
+  animation-delay: -20s;
+}
+
+.dot--5 {
+  width: clamp(8px, 2vw, 14px);
+  height: clamp(8px, 2vw, 14px);
+  left: 45%;
+  top: -5%;
+  animation-name: float-vertical-1;
+  animation-duration: 22s;
+  animation-delay: -15s;
+}
+
+.dot--6 {
+  width: clamp(15px, 4vw, 25px);
+  height: clamp(15px, 4vw, 25px);
+  left: 85%;
+  top: -10%;
+  animation-name: float-vertical-3;
+  animation-duration: 32s;
+  animation-delay: -8s;
+}
 
 /* Keyframes: vertical travel with gentle horizontal oscillation and fade */
 @keyframes float-vertical-1 {
-  0% { transform: translate3d(0, -6vh, 0) translateX(0); opacity: 0.0; }
-  8% { opacity: 0.7; }
-  50% { transform: translate3d(8vw, 50vh, 0) translateX(4px); opacity: 0.95; }
-  92% { opacity: 0.6; }
-  100% { transform: translate3d(-6vw, 110vh, 0) translateX(0); opacity: 0; }
+  0% {
+    transform: translate3d(0, -6vh, 0) translateX(0);
+    opacity: 0.0;
+  }
+
+  8% {
+    opacity: 0.7;
+  }
+
+  50% {
+    transform: translate3d(8vw, 50vh, 0) translateX(4px);
+    opacity: 0.95;
+  }
+
+  92% {
+    opacity: 0.6;
+  }
+
+  100% {
+    transform: translate3d(-6vw, 110vh, 0) translateX(0);
+    opacity: 0;
+  }
 }
+
 @keyframes float-vertical-2 {
-  0% { transform: translate3d(0, -8vh, 0) translateX(0); opacity: 0; }
-  10% { opacity: 0.6; }
-  50% { transform: translate3d(-6vw, 60vh, 0) translateX(-6px); opacity: 0.95; }
-  95% { opacity: 0.5; }
-  100% { transform: translate3d(6vw, 120vh, 0) translateX(0); opacity: 0; }
+  0% {
+    transform: translate3d(0, -8vh, 0) translateX(0);
+    opacity: 0;
+  }
+
+  10% {
+    opacity: 0.6;
+  }
+
+  50% {
+    transform: translate3d(-6vw, 60vh, 0) translateX(-6px);
+    opacity: 0.95;
+  }
+
+  95% {
+    opacity: 0.5;
+  }
+
+  100% {
+    transform: translate3d(6vw, 120vh, 0) translateX(0);
+    opacity: 0;
+  }
 }
+
 @keyframes float-vertical-3 {
-  0% { transform: translate3d(0, -5vh, 0) translateX(0); opacity: 0; }
-  12% { opacity: 0.65; }
-  48% { transform: translate3d(10vw, 48vh, 0) translateX(6px); opacity: 0.95; }
-  96% { opacity: 0.55; }
-  100% { transform: translate3d(-10vw, 115vh, 0) translateX(0); opacity: 0; }
+  0% {
+    transform: translate3d(0, -5vh, 0) translateX(0);
+    opacity: 0;
+  }
+
+  12% {
+    opacity: 0.65;
+  }
+
+  48% {
+    transform: translate3d(10vw, 48vh, 0) translateX(6px);
+    opacity: 0.95;
+  }
+
+  96% {
+    opacity: 0.55;
+  }
+
+  100% {
+    transform: translate3d(-10vw, 115vh, 0) translateX(0);
+    opacity: 0;
+  }
 }
 
 /* Respect prefers-reduced-motion */
 @media (prefers-reduced-motion: reduce) {
-  .dot { animation: none; opacity: .85; transform: translate3d(0,20px,0); }
+  .dot {
+    animation: none;
+    opacity: .85;
+    transform: translate3d(0, 20px, 0);
+  }
 }
 
 /* Ensure form controls remain usable */
-.contact-form { position: relative; z-index: 3; }
+.contact-form {
+  position: relative;
+  z-index: 3;
+}

@@ -6,16 +6,18 @@ body {
 	position: absolute;
 	top: 50%;
 	left: 50%;
-	transform: translate(-50%,-50%);
+	transform: translate(-50%, -50%);
 	font-weight: 600;
-	font-size: clamp(1rem, 3vw, 1.5rem); /* Mensaje error responsivo */
+	font-size: var(--fs-h3);
+	/* Mensaje error responsivo */
 	text-align: center;
 	padding: 0 1rem;
 }
 
 .ppal-text {
 	font-style: italic;
-	font-size: clamp(12pt, 3vw, 15pt); /* Texto principal responsivo */
+	font-size: var(--fs-body-lg);
+	/* Texto principal responsivo */
 }
 
 .grid-item .flex {
@@ -31,27 +33,29 @@ body {
 }
 
 .menu-container.grid {
-	grid-template-columns: repeat(auto-fit, minmax(min(250px, 100%), 1fr)); /* Grid autoadaptativo */
+	grid-template-columns: repeat(auto-fit, minmax(min(250px, 100%), 1fr));
+	/* Grid autoadaptativo */
 	gap: clamp(1.5rem, 5vw, 6rem);
 }
 
 .guitar-title {
-	font-size: clamp(12pt, 3vw, 16pt); /* Título guitarra responsivo */
+	font-size: var(--fs-h3);
+	/* Título guitarra responsivo */
 }
 
-button:disabled:hover{
+button:disabled:hover {
 	background-color: orange;
 	border: 1px solid rgb(248, 165, 11);
 	cursor: not-allowed;
 }
 
-.product-data-container{
+.product-data-container {
 	max-height: 18vh;
 	overflow-y: auto;
 	overflow-x: hidden;
 }
 
-.product-description{
+.product-description {
 	height: auto;
 	min-height: 4rem;
 	max-height: 6rem;
